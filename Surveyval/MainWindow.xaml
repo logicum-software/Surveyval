@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Surveyval" Height="310" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="buttonDesign" Content="Questionnaire Design" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="buttonDesign" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="130" Click="ButtonDesign_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="230" Margin="145,10,0,0" VerticalAlignment="Top" Width="339" Source="people-clipart.jpg"/>
 
     </Grid>

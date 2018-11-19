@@ -23,6 +23,12 @@ namespace Surveyval
         public MainWindow()
         {
             InitializeComponent();
+            buttonDesign.Content = strings.ButtonDesign;
+        }
+
+        private void ButtonDesign_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
