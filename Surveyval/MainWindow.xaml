@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Surveyval"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Surveyval" Height="450" Width="730" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         
     </Grid>
