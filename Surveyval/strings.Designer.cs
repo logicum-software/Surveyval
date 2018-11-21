@@ -151,11 +151,83 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Questionnaire Design ähnelt.
+        /// </summary>
+        internal static string DesignTitle {
+            get {
+                return ResourceManager.GetString("DesignTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Surveyval ähnelt.
         /// </summary>
         internal static string MainWindow {
             get {
                 return ResourceManager.GetString("MainWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        /// </summary>
+        internal static string NewQuestionButtonCancel {
+            get {
+                return ResourceManager.GetString("NewQuestionButtonCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
+        /// </summary>
+        internal static string NewQuestionButtonSave {
+            get {
+                return ResourceManager.GetString("NewQuestionButtonSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Answer type ähnelt.
+        /// </summary>
+        internal static string NewQuestionGroupBoxAnswer {
+            get {
+                return ResourceManager.GetString("NewQuestionGroupBoxAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Text ähnelt.
+        /// </summary>
+        internal static string NewQuestionLabelText {
+            get {
+                return ResourceManager.GetString("NewQuestionLabelText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Choice ähnelt.
+        /// </summary>
+        internal static string NewQuestionRadioChoice {
+            get {
+                return ResourceManager.GetString("NewQuestionRadioChoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Text ähnelt.
+        /// </summary>
+        internal static string NewQuestionRadioText {
+            get {
+                return ResourceManager.GetString("NewQuestionRadioText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die New question ähnelt.
+        /// </summary>
+        internal static string NewQuestionTitle {
+            get {
+                return ResourceManager.GetString("NewQuestionTitle", resourceCulture);
             }
         }
         

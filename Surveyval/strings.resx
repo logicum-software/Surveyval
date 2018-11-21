@@ -147,8 +147,32 @@
   <data name="DesignLabelName" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="DesignTitle" xml:space="preserve">
+    <value>Questionnaire Design</value>
+  </data>
   <data name="MainWindow" xml:space="preserve">
     <value>Surveyval</value>
+  </data>
+  <data name="NewQuestionButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewQuestionButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="NewQuestionGroupBoxAnswer" xml:space="preserve">
+    <value>Answer type</value>
+  </data>
+  <data name="NewQuestionLabelText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="NewQuestionRadioChoice" xml:space="preserve">
+    <value>Choice</value>
+  </data>
+  <data name="NewQuestionRadioText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="NewQuestionTitle" xml:space="preserve">
+    <value>New question</value>
   </data>
   <data name="SelectionButtonCancel" xml:space="preserve">
     <value>Cancel</value>

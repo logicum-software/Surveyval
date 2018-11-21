@@ -27,5 +27,12 @@ namespace Surveyval
         {
             this.Close();
         }
+
+        private void ButtonNewQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            NewQuestion dlgNewQuestion = new NewQuestion();
+
+            dlgNewQuestion.ShowDialog();
+        }
     }
 }
