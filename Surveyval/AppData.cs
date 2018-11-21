@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EinrichtungsStatistik
+namespace Surveyval
 {
     [Serializable]
     class AppData

@@ -120,4 +120,46 @@
   <data name="ButtonDesign" xml:space="preserve">
     <value>Questionnaire Design</value>
   </data>
+  <data name="DesignButtonAddQuestion" xml:space="preserve">
+    <value>Add question</value>
+  </data>
+  <data name="DesignButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="DesignButtonDelQuestion" xml:space="preserve">
+    <value>Delete question</value>
+  </data>
+  <data name="DesignButtonNewQuestion" xml:space="preserve">
+    <value>New question</value>
+  </data>
+  <data name="DesignButtonRemoveQuestion" xml:space="preserve">
+    <value>Remove question</value>
+  </data>
+  <data name="DesignButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="DesignLabelCatalog" xml:space="preserve">
+    <value>Questions catalog</value>
+  </data>
+  <data name="DesignLabelIncluded" xml:space="preserve">
+    <value>Included questions</value>
+  </data>
+  <data name="DesignLabelName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="MainWindow" xml:space="preserve">
+    <value>Surveyval</value>
+  </data>
+  <data name="SelectionButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="SelectionButtonLoad" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="SelectionButtonNew" xml:space="preserve">
+    <value>Create new</value>
+  </data>
+  <data name="SelectionTitle" xml:space="preserve">
+    <value>Select Questionnaire</value>
+  </data>
 </root>

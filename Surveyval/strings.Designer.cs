@@ -68,5 +68,131 @@ namespace Surveyval {
                 return ResourceManager.GetString("ButtonDesign", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add question ähnelt.
+        /// </summary>
+        internal static string DesignButtonAddQuestion {
+            get {
+                return ResourceManager.GetString("DesignButtonAddQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        /// </summary>
+        internal static string DesignButtonCancel {
+            get {
+                return ResourceManager.GetString("DesignButtonCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete question ähnelt.
+        /// </summary>
+        internal static string DesignButtonDelQuestion {
+            get {
+                return ResourceManager.GetString("DesignButtonDelQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die New question ähnelt.
+        /// </summary>
+        internal static string DesignButtonNewQuestion {
+            get {
+                return ResourceManager.GetString("DesignButtonNewQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove question ähnelt.
+        /// </summary>
+        internal static string DesignButtonRemoveQuestion {
+            get {
+                return ResourceManager.GetString("DesignButtonRemoveQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
+        /// </summary>
+        internal static string DesignButtonSave {
+            get {
+                return ResourceManager.GetString("DesignButtonSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Questions catalog ähnelt.
+        /// </summary>
+        internal static string DesignLabelCatalog {
+            get {
+                return ResourceManager.GetString("DesignLabelCatalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Included questions ähnelt.
+        /// </summary>
+        internal static string DesignLabelIncluded {
+            get {
+                return ResourceManager.GetString("DesignLabelIncluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Name ähnelt.
+        /// </summary>
+        internal static string DesignLabelName {
+            get {
+                return ResourceManager.GetString("DesignLabelName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Surveyval ähnelt.
+        /// </summary>
+        internal static string MainWindow {
+            get {
+                return ResourceManager.GetString("MainWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        /// </summary>
+        internal static string SelectionButtonCancel {
+            get {
+                return ResourceManager.GetString("SelectionButtonCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Load ähnelt.
+        /// </summary>
+        internal static string SelectionButtonLoad {
+            get {
+                return ResourceManager.GetString("SelectionButtonLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Create new ähnelt.
+        /// </summary>
+        internal static string SelectionButtonNew {
+            get {
+                return ResourceManager.GetString("SelectionButtonNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Select Questionnaire ähnelt.
+        /// </summary>
+        internal static string SelectionTitle {
+            get {
+                return ResourceManager.GetString("SelectionTitle", resourceCulture);
+            }
+        }
     }
 }

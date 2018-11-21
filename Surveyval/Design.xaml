@@ -1,0 +1,36 @@
+﻿<Window x:Class="Surveyval.Design"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Surveyval"
+        mc:Ignorable="d"
+        Title="Questionnaire Design" Height="640" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label x:Name="labelName" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="53,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="314"/>
+        <Label x:Name="labelIncluded" Content="" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="164"/>
+        <ListView x:Name="listViewIncluded" Margin="10,93,10,314">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="labelCatalog" Content="" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Width="140"/>
+        <ListView x:Name="listViewCatalog" Margin="10,356,10,51">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="buttonCancel" Content="" Margin="933,0,10,10" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
+        <Button x:Name="buttonSave" Content="" Margin="853,0,90,10" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="buttonNewQuestion" Content="" Margin="0,331,763,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>
+        <Button x:Name="buttonDelQuestion" Content="" HorizontalAlignment="Left" Margin="260,331,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="buttonRemoveQuestion" Content="" Margin="898,302,10,0" VerticalAlignment="Top"/>
+        <Button x:Name="buttonAddQuestion" Content="" Margin="783,302,125,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

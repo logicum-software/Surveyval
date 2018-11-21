@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EinrichtungsStatistik
+namespace Surveyval
 {
     [Serializable]
     class Frage

@@ -1,0 +1,22 @@
+﻿<Window x:Class="Surveyval.Selection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Surveyval"
+        mc:Ignorable="d"
+        Title="Select Questionnaire" Height="450" Width="480.1" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <ListView x:Name="listViewSelect" Height="364" Margin="10,10,10,0" VerticalAlignment="Top" SelectionChanged="ListViewSelect_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=strName}" Header="Name" Width="454"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="buttonLoad" Content="" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="buttonCancel" Content="" Margin="389,0,10,10" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
+        <Button x:Name="buttonNew" Content="" HorizontalAlignment="Left" Margin="90,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom" Click="ButtonNew_Click"/>
+
+    </Grid>
+</Window>
