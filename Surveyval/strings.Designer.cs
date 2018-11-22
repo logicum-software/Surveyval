@@ -223,6 +223,15 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Please enter the question... ähnelt.
+        /// </summary>
+        internal static string NewQuestionTextBoxText {
+            get {
+                return ResourceManager.GetString("NewQuestionTextBoxText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die New question ähnelt.
         /// </summary>
         internal static string NewQuestionTitle {

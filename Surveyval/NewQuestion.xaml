@@ -7,15 +7,15 @@
         mc:Ignorable="d" Height="239.3" Width="590.176" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="labelText" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90"/>
-        <TextBox x:Name="textBoxText" Height="23" Margin="10,41,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxText" Height="23" Margin="10,41,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextChanged="TextBoxText_TextChanged"/>
         <GroupBox x:Name="groupBoxAnswer" Header="" Height="100" Margin="10,69,10,0" VerticalAlignment="Top">
             <Grid Height="63" Margin="10,10,-2,0" VerticalAlignment="Top">
                 <RadioButton x:Name="radioButtonText" Content="" Margin="10,10,434,0" VerticalAlignment="Top"/>
                 <RadioButton x:Name="radioButtonChoice" Content="" Margin="10,30,434,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="buttonSave" Content="" HorizontalAlignment="Left" Margin="10,0,0,5" Width="75" Height="20" VerticalAlignment="Bottom"/>
-        <Button x:Name="buttonCancel" Content="" Margin="0,0,10,5" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="buttonSave" Content="" HorizontalAlignment="Left" Margin="10,0,0,5" Width="75" Height="20" VerticalAlignment="Bottom" IsEnabled="False" Click="ButtonSave_Click"/>
+        <Button x:Name="buttonCancel" Content="" Margin="0,0,10,5" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
 
     </Grid>
 </Window>

@@ -171,6 +171,9 @@
   <data name="NewQuestionRadioText" xml:space="preserve">
     <value>Text</value>
   </data>
+  <data name="NewQuestionTextBoxText" xml:space="preserve">
+    <value>Please enter the question...</value>
+  </data>
   <data name="NewQuestionTitle" xml:space="preserve">
     <value>New question</value>
   </data>
