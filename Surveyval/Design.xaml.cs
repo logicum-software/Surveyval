@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
@@ -10,7 +11,8 @@ namespace Surveyval
     /// </summary>
     public partial class Design : Window
     {
-        private AppData appData;
+        private Fragebogen tmpFragebogen = new Fragebogen();
+        private List<Frage> tmpFragen = new List<Frage>();
 
         public Design()
         {
@@ -26,6 +28,25 @@ namespace Surveyval
             buttonDelQuestion.Content = strings.DesignButtonDelQuestion;
             buttonAddQuestion.Content = strings.DesignButtonAddQuestion;
             buttonRemoveQuestion.Content = strings.DesignButtonRemoveQuestion;
+
+            // Initialize fields
+            textBoxName.Text = strings.DesignNewQuestionnaireText;
+            listViewIncluded.ItemsSource = tmpFragebogen.Fragen;
+            listViewCatalog.ItemsSource = tmpFragen;
+        }
+
+        internal void setFrage(List<Frage> fragen)
+        {
+            foreach (Frage item in fragen)
+                tmpFragen.Add(item);
+        }
+
+        internal void setFragebogen(Fragebogen fragebogen)
+        {
+            tmpFragebogen.strName = fragebogen.strName;
+
+            foreach (Frage item in fragebogen.Fragen)
+                tmpFragebogen.Fragen.Add(item);
         }
 
         private void saveData(AppData appData)

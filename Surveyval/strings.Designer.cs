@@ -151,6 +151,15 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die New Questionnaire ähnelt.
+        /// </summary>
+        internal static string DesignNewQuestionnaireText {
+            get {
+                return ResourceManager.GetString("DesignNewQuestionnaireText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Questionnaire Design ähnelt.
         /// </summary>
         internal static string DesignTitle {

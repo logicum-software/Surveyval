@@ -8,12 +8,12 @@
         Title="Questionnaire Design" Height="640" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="labelName" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="53,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="314"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="53,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="314"/>
         <Label x:Name="labelIncluded" Content="" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="164"/>
         <ListView x:Name="listViewIncluded" Margin="10,93,10,314">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=strFragetext}" Header="Fragetext"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -21,7 +21,7 @@
         <ListView x:Name="listViewCatalog" Margin="10,356,10,51">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=strFragetext}" Header="Fragetext"/>
                 </GridView>
             </ListView.View>
         </ListView>
