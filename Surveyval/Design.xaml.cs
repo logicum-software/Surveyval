@@ -11,6 +11,7 @@ namespace Surveyval
     /// </summary>
     public partial class Design : Window
     {
+        private AppData appData;
         private Fragebogen tmpFragebogen = new Fragebogen();
         private List<Frage> tmpFragen = new List<Frage>();
 
@@ -35,7 +36,7 @@ namespace Surveyval
             listViewCatalog.ItemsSource = tmpFragen;
         }
 
-        internal void setFrage(List<Frage> fragen)
+        internal void setTmpFragen(List<Frage> fragen)
         {
             foreach (Frage item in fragen)
                 tmpFragen.Add(item);

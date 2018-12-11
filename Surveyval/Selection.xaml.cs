@@ -19,11 +19,11 @@ namespace Surveyval
             buttonLoad.Content = strings.SelectionButtonLoad;
             buttonCancel.Content = strings.SelectionButtonCancel;
             buttonNew.Content = strings.SelectionButtonNew;
-            appData = loadData();
+            appData = new AppData();
             listViewSelect.ItemsSource = appData.appFrageboegen;
         }
 
-        private void saveData(AppData appData)
+/*        private void saveData(AppData appData)
         {
             FileStream fs = new FileStream("udata.dat", FileMode.Create);
 
@@ -64,7 +64,7 @@ namespace Surveyval
                 //throw;
             }
             return appData;
-        }
+        }*/
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -79,6 +79,8 @@ namespace Surveyval
         private void ButtonNew_Click(object sender, RoutedEventArgs e)
         {
             Design dlgDesign = new Design();
+
+            dlgDesign.setTmpFragen(appData.appFragen);
 
             dlgDesign.ShowDialog();
             this.Close();
