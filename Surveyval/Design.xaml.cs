@@ -13,7 +13,6 @@ namespace Surveyval
     {
         private AppData appData;
         private Fragebogen tmpFragebogen = new Fragebogen();
-        private List<Frage> tmpFragen = new List<Frage>();
 
         public Design()
         {
@@ -30,16 +29,12 @@ namespace Surveyval
             buttonAddQuestion.Content = strings.DesignButtonAddQuestion;
             buttonRemoveQuestion.Content = strings.DesignButtonRemoveQuestion;
 
+            appData = new AppData();
+
             // Initialize fields
             textBoxName.Text = strings.DesignNewQuestionnaireText;
             listViewIncluded.ItemsSource = tmpFragebogen.Fragen;
-            listViewCatalog.ItemsSource = tmpFragen;
-        }
-
-        internal void setTmpFragen(List<Frage> fragen)
-        {
-            foreach (Frage item in fragen)
-                tmpFragen.Add(item);
+            listViewCatalog.ItemsSource = appData.appFragen;
         }
 
         internal void setFragebogen(Fragebogen fragebogen)
@@ -49,50 +44,6 @@ namespace Surveyval
             foreach (Frage item in fragebogen.Fragen)
                 tmpFragebogen.Fragen.Add(item);
         }
-
-        private void saveData(AppData appData)
-        {
-            FileStream fs = new FileStream("udata.dat", FileMode.Create);
-
-            // Construct a BinaryFormatter and use it to serialize the data to the stream.
-            BinaryFormatter formatter = new BinaryFormatter();
-            try
-            {
-                formatter.Serialize(fs, appData);
-            }
-            catch (SerializationException ec)
-            {
-                MessageBox.Show(ec.Message, "Speicherfehler", MessageBoxButton.OK);
-                //Console.WriteLine("Failed to serialize. Reason: " + ec.Message);
-                throw;
-            }
-            finally
-            {
-                fs.Close();
-            }
-        }
-
-        private AppData loadData()
-        {
-            AppData appData;
-
-            IFormatter formatter = new BinaryFormatter();
-            try
-            {
-                Stream stream = new FileStream("udata.dat", FileMode.Open, FileAccess.Read, FileShare.Read);
-                appData = (AppData)formatter.Deserialize(stream);
-                stream.Close();
-            }
-            catch (FileNotFoundException e)
-            {
-                MessageBox.Show(e.Message, "Dateifehler", MessageBoxButton.OK);
-                appData = new AppData();
-                //Application.Current.Shutdown();
-                //throw;
-            }
-            return appData;
-        }
-
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -104,6 +55,13 @@ namespace Surveyval
             NewQuestion dlgNewQuestion = new NewQuestion();
 
             dlgNewQuestion.ShowDialog();
+
+            if (dlgNewQuestion.DialogResult == true)
+            {
+                appData.appFragen.Add(dlgNewQuestion.getFrage());
+                appData.save();
+                MessageBox.Show("Frage gespeichert", "Die eingegebene Frage wurde gespeichert.", MessageBoxButton.OK);
+            }
         }
     }
 }

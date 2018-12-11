@@ -80,8 +80,6 @@ namespace Surveyval
         {
             Design dlgDesign = new Design();
 
-            dlgDesign.setTmpFragen(appData.appFragen);
-
             dlgDesign.ShowDialog();
             this.Close();
         }
