@@ -37,6 +37,18 @@ namespace Surveyval
             listViewCatalog.ItemsSource = appData.appFragen;
         }
 
+        private void refreshLists()
+        {
+            listViewIncluded.Items.Refresh();
+            listViewCatalog.Items.Refresh();
+            textBoxName.Text = tmpFragebogen.strName;
+
+            // Spaltenbreite neu anpassen
+            listViewIncluded.UpdateLayout();
+            listViewCatalog.UpdateLayout();
+        }
+
+
         internal void setFragebogen(Fragebogen fragebogen)
         {
             tmpFragebogen.strName = fragebogen.strName;
@@ -61,6 +73,7 @@ namespace Surveyval
                 appData.appFragen.Add(dlgNewQuestion.getFrage());
                 appData.save();
                 MessageBox.Show("Frage gespeichert", "Die eingegebene Frage wurde gespeichert.", MessageBoxButton.OK);
+                refreshLists();
             }
         }
     }
