@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
@@ -68,12 +70,56 @@ namespace Surveyval
 
             dlgNewQuestion.ShowDialog();
 
-            if (dlgNewQuestion.DialogResult == true)
+            if (dlgNewQuestion.DialogResult.HasValue && dlgNewQuestion.DialogResult.Value == true)
             {
+                foreach (Frage item in appData.appFragen)
+                {
+                    if (String.Compare(item.strFragetext, dlgNewQuestion.getFrage().strFragetext, true) > -1 &&
+                        String.Compare(item.strFragetext, dlgNewQuestion.getFrage().strFragetext, true) < 1)
+                    {
+                        if (MessageBox.Show(strings.NewQuestionExists1 + "\n\n" + item.strFragetext + "\n\n" + strings.NewQuestionExists2,
+                            strings.NewQuestionExists3, MessageBoxButton.YesNo) == MessageBoxResult.No)
+                            return;
+                    }
+                }
                 appData.appFragen.Add(dlgNewQuestion.getFrage());
                 appData.save();
-                MessageBox.Show("Frage gespeichert", "Die eingegebene Frage wurde gespeichert.", MessageBoxButton.OK);
+                MessageBox.Show(strings.NewQuestionSaved2, strings.NewQuestionSaved1, MessageBoxButton.OK);
                 refreshLists();
+            }
+        }
+
+        private void ButtonDelQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            if (listViewCatalog.SelectedItem != null)
+            {
+                if (MessageBox.Show(strings.DesignDeleteQuestion2 + "\n\n" +
+                    appData.appFragen.ElementAt(listViewCatalog.SelectedIndex).strFragetext +
+                    "\n\n" + strings.DesignDeleteQuestion3, strings.DesignDeleteQuestion1, MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return;
+                else
+                {
+                    appData.appFragen.RemoveAt(listViewCatalog.SelectedIndex);
+                    appData.save();
+                    refreshLists();
+                }
+            }
+        }
+
+        private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            listViewIncluded.SelectedItem = null;
+
+            if (listViewCatalog.SelectedItem != null)
+            {
+                buttonDelQuestion.IsEnabled = true;
+                buttonAddQuestion.IsEnabled = true;
+                buttonRemoveQuestion.IsEnabled = false;
+            }
+            else
+            {
+                buttonDelQuestion.IsEnabled = false;
+                buttonRemoveQuestion.IsEnabled = false;
             }
         }
     }

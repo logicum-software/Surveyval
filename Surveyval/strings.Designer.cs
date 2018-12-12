@@ -124,6 +124,33 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete question ähnelt.
+        /// </summary>
+        internal static string DesignDeleteQuestion1 {
+            get {
+                return ResourceManager.GetString("DesignDeleteQuestion1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to delete the follwing question from the catalog: ähnelt.
+        /// </summary>
+        internal static string DesignDeleteQuestion2 {
+            get {
+                return ResourceManager.GetString("DesignDeleteQuestion2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die (You won´t be able to use it anymore) ähnelt.
+        /// </summary>
+        internal static string DesignDeleteQuestion3 {
+            get {
+                return ResourceManager.GetString("DesignDeleteQuestion3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Questions catalog ähnelt.
         /// </summary>
         internal static string DesignLabelCatalog {
@@ -196,6 +223,33 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The question you entered is similar to the following question: ähnelt.
+        /// </summary>
+        internal static string NewQuestionExists1 {
+            get {
+                return ResourceManager.GetString("NewQuestionExists1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want to save it anyway? ähnelt.
+        /// </summary>
+        internal static string NewQuestionExists2 {
+            get {
+                return ResourceManager.GetString("NewQuestionExists2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Question exists ähnelt.
+        /// </summary>
+        internal static string NewQuestionExists3 {
+            get {
+                return ResourceManager.GetString("NewQuestionExists3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Answer type ähnelt.
         /// </summary>
         internal static string NewQuestionGroupBoxAnswer {
@@ -228,6 +282,24 @@ namespace Surveyval {
         internal static string NewQuestionRadioText {
             get {
                 return ResourceManager.GetString("NewQuestionRadioText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Question saved ähnelt.
+        /// </summary>
+        internal static string NewQuestionSaved1 {
+            get {
+                return ResourceManager.GetString("NewQuestionSaved1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The question has been saved. ähnelt.
+        /// </summary>
+        internal static string NewQuestionSaved2 {
+            get {
+                return ResourceManager.GetString("NewQuestionSaved2", resourceCulture);
             }
         }
         

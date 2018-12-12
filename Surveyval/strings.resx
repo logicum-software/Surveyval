@@ -138,6 +138,15 @@
   <data name="DesignButtonSave" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="DesignDeleteQuestion1" xml:space="preserve">
+    <value>Delete question</value>
+  </data>
+  <data name="DesignDeleteQuestion2" xml:space="preserve">
+    <value>Do you really want to delete the follwing question from the catalog:</value>
+  </data>
+  <data name="DesignDeleteQuestion3" xml:space="preserve">
+    <value>(You won´t be able to use it anymore)</value>
+  </data>
   <data name="DesignLabelCatalog" xml:space="preserve">
     <value>Questions catalog</value>
   </data>
@@ -162,6 +171,15 @@
   <data name="NewQuestionButtonSave" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="NewQuestionExists1" xml:space="preserve">
+    <value>The question you entered is similar to the following question:</value>
+  </data>
+  <data name="NewQuestionExists2" xml:space="preserve">
+    <value>Do you want to save it anyway?</value>
+  </data>
+  <data name="NewQuestionExists3" xml:space="preserve">
+    <value>Question exists</value>
+  </data>
   <data name="NewQuestionGroupBoxAnswer" xml:space="preserve">
     <value>Answer type</value>
   </data>
@@ -173,6 +191,12 @@
   </data>
   <data name="NewQuestionRadioText" xml:space="preserve">
     <value>Text</value>
+  </data>
+  <data name="NewQuestionSaved1" xml:space="preserve">
+    <value>Question saved</value>
+  </data>
+  <data name="NewQuestionSaved2" xml:space="preserve">
+    <value>The question has been saved.</value>
   </data>
   <data name="NewQuestionTextBoxText" xml:space="preserve">
     <value>Please enter the question...</value>
