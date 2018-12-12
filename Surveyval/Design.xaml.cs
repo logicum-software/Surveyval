@@ -33,8 +33,29 @@ namespace Surveyval
 
             appData = new AppData();
 
+            int i = 1;
+            Boolean bFound = false;
+
+            if (appData.appFrageboegen.Count > 0)
+            {
+                while (!bFound)
+                {
+                    foreach (Fragebogen item in appData.appFrageboegen)
+                    {
+                        if (item.strName.Equals(strings.DesignNewQuestionnaireText + i))
+                        {
+                            i++;
+                            break;
+                        }
+
+                        if (item.strName.Equals(appData.appFrageboegen[appData.appFrageboegen.Count - 1].strName))
+                            bFound = true;
+                    }
+                }
+            }
+
             // Initialize fields
-            textBoxName.Text = strings.DesignNewQuestionnaireText;
+            textBoxName.Text = strings.DesignNewQuestionnaireText + i;
             listViewIncluded.ItemsSource = tmpFragebogen.Fragen;
             listViewCatalog.ItemsSource = appData.appFragen;
         }
