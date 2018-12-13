@@ -8,7 +8,7 @@
         Title="Questionnaire Design" Height="640" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label x:Name="labelName" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="53,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="314"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="53,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="314" TextChanged="TextBoxName_TextChanged"/>
         <Label x:Name="labelIncluded" Content="" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="164"/>
         <ListView x:Name="listViewIncluded" Margin="10,93,10,314">
             <ListView.View>
@@ -26,11 +26,11 @@
             </ListView.View>
         </ListView>
         <Button x:Name="buttonCancel" Content="" Margin="933,0,10,10" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
-        <Button x:Name="buttonSave" Content="" Margin="853,0,90,10" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="buttonSave" Content="" Margin="853,0,90,10" Height="20" VerticalAlignment="Bottom" Click="ButtonSave_Click"/>
         <Button x:Name="buttonNewQuestion" Content="" Margin="0,331,763,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Click="ButtonNewQuestion_Click"/>
         <Button x:Name="buttonDelQuestion" Content="" HorizontalAlignment="Left" Margin="260,331,0,0" VerticalAlignment="Top" Width="100" Click="ButtonDelQuestion_Click" IsEnabled="False"/>
-        <Button x:Name="buttonRemoveQuestion" Content="" Margin="898,302,10,0" VerticalAlignment="Top" IsEnabled="False"/>
-        <Button x:Name="buttonAddQuestion" Content="" Margin="783,302,125,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <Button x:Name="buttonRemoveQuestion" Content="" Margin="898,302,10,0" VerticalAlignment="Top" IsEnabled="False" Click="ButtonRemoveQuestion_Click"/>
+        <Button x:Name="buttonAddQuestion" Content="" Margin="783,302,125,0" VerticalAlignment="Top" IsEnabled="False" Click="ButtonAddQuestion_Click"/>
 
     </Grid>
 </Window>

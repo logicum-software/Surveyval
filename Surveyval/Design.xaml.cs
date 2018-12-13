@@ -15,6 +15,7 @@ namespace Surveyval
     {
         private AppData appData;
         private Fragebogen tmpFragebogen = new Fragebogen();
+        private List<Frage> tmpFragen = new List<Frage>();
 
         public Design()
         {
@@ -56,12 +57,20 @@ namespace Surveyval
 
             // Initialize fields
             textBoxName.Text = strings.DesignNewQuestionnaireText + i;
+            tmpFragebogen.strName = textBoxName.Text;
             listViewIncluded.ItemsSource = tmpFragebogen.Fragen;
             listViewCatalog.ItemsSource = appData.appFragen;
+            refreshLists();
         }
 
         private void refreshLists()
         {
+            foreach (Frage item in appData.appFragen)
+            {
+                if (!tmpFragebogen.Fragen.Contains(item))
+                    tmpFragen.Add(item);
+            }
+
             listViewIncluded.Items.Refresh();
             listViewCatalog.Items.Refresh();
             textBoxName.Text = tmpFragebogen.strName;
@@ -142,6 +151,66 @@ namespace Surveyval
                 buttonDelQuestion.IsEnabled = false;
                 buttonRemoveQuestion.IsEnabled = false;
             }
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            // <-- ToDo ÜBERARBEITEN  Was, wenn er vorher schon gespeichert wurde? -->
+
+            if (tmpFragebogen.Fragen.Count < 1)
+            {
+                if (MessageBox.Show(strings.DesignSaveNoQuestions1 + "\n\n" + tmpFragebogen.strName + "\n\n" +
+                    strings.DesignSaveNoQuestions2, strings.DesignSave, MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return;
+            }
+
+            foreach (Fragebogen item in appData.appFrageboegen)
+            {
+                if (item.strName.Equals(tmpFragebogen.strName))
+                {
+                    if (MessageBox.Show(strings.DesignSaveExists, strings.DesignSave, MessageBoxButton.YesNo) == MessageBoxResult.No)
+                        return;
+
+                    appData.appFrageboegen.Remove(item);
+
+                    /*item.strName = tmpFragebogen.strName;
+                    item.Fragen = tmpFragebogen.Fragen;
+                    appData.save();
+                    //bChanged = false;
+                    MessageBox.Show(strings.DesignSaveNoQuestions1 + "\n\n" + tmpFragebogen.strName + "\n\n" +
+                        strings.DesignSaveDone, strings.DesignSave, MessageBoxButton.OK);
+                    return;*/
+                }
+            }
+
+            appData.appFrageboegen.Add(tmpFragebogen);
+            appData.save();
+            //bChanged = false;
+            MessageBox.Show(strings.DesignSaveNoQuestions1 + "\n\n" + tmpFragebogen.strName + "\n\n" +
+                strings.DesignSaveDone, strings.DesignSave, MessageBoxButton.OK);
+        }
+
+        private void ButtonAddQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            if (listViewCatalog.SelectedItem != null)
+            {
+                tmpFragebogen.Fragen.Add(tmpFragen.ElementAt(listViewCatalog.SelectedIndex));
+                MessageBox.Show(strings.DesignAddQuestion1 + "\n\n" + tmpFragen.ElementAt(listViewCatalog.SelectedIndex).strFragetext +
+                    "\n\n" + strings.DesignAddQuestion2, strings.DesignAddQuestion3, MessageBoxButton.OK);
+                tmpFragen.RemoveAt(listViewCatalog.SelectedIndex);
+                refreshLists();
+                buttonRemoveQuestion.IsEnabled = false;
+            }
+        }
+
+        private void ButtonRemoveQuestion_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBoxName_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            tmpFragebogen.strName = textBoxName.Text;
         }
     }
 }

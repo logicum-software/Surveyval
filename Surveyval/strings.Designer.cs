@@ -70,6 +70,33 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The question: ähnelt.
+        /// </summary>
+        internal static string DesignAddQuestion1 {
+            get {
+                return ResourceManager.GetString("DesignAddQuestion1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die has been added to the questionnaire. ähnelt.
+        /// </summary>
+        internal static string DesignAddQuestion2 {
+            get {
+                return ResourceManager.GetString("DesignAddQuestion2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Question added ähnelt.
+        /// </summary>
+        internal static string DesignAddQuestion3 {
+            get {
+                return ResourceManager.GetString("DesignAddQuestion3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Add question ähnelt.
         /// </summary>
         internal static string DesignButtonAddQuestion {
@@ -183,6 +210,51 @@ namespace Surveyval {
         internal static string DesignNewQuestionnaireText {
             get {
                 return ResourceManager.GetString("DesignNewQuestionnaireText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save questionnaire ähnelt.
+        /// </summary>
+        internal static string DesignSave {
+            get {
+                return ResourceManager.GetString("DesignSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die has been saved. ähnelt.
+        /// </summary>
+        internal static string DesignSaveDone {
+            get {
+                return ResourceManager.GetString("DesignSaveDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die A questionnaire with that name already exists. Do you want to override it? ähnelt.
+        /// </summary>
+        internal static string DesignSaveExists {
+            get {
+                return ResourceManager.GetString("DesignSaveExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The questionnaire: ähnelt.
+        /// </summary>
+        internal static string DesignSaveNoQuestions1 {
+            get {
+                return ResourceManager.GetString("DesignSaveNoQuestions1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die does not contain any questions. Do you want to save it anyway? ähnelt.
+        /// </summary>
+        internal static string DesignSaveNoQuestions2 {
+            get {
+                return ResourceManager.GetString("DesignSaveNoQuestions2", resourceCulture);
             }
         }
         
