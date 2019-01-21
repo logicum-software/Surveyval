@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Surveyval"
-        mc:Ignorable="d" Height="310" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        mc:Ignorable="d" Height="400" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="buttonDesign" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="130" Click="ButtonDesign_Click"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="230" Margin="145,10,0,0" VerticalAlignment="Top" Width="339" Source="people-clipart.jpg"/>
+        <Button x:Name="buttonDesign" Content="" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="150" Click="ButtonDesign_Click"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="230" Margin="200,75,0,0" VerticalAlignment="Top" Width="339" Source="people-clipart.jpg"/>
 
     </Grid>
 </Window>

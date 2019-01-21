@@ -20,5 +20,16 @@ namespace Surveyval
             strName = name;
             Fragen = new List<Frage>(fragen);
         }
+
+        public bool Equals(Fragebogen obj)
+        {
+            if (obj == null) return false;
+            if (obj.strName.Equals(strName))
+                return true;
+            else
+                return false;
+
+            //return base.Equals(obj);
+        }
     }
 }

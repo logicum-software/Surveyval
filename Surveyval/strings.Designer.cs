@@ -61,7 +61,7 @@ namespace Surveyval {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Questionnaire Design ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Questionnaire-Manager ähnelt.
         /// </summary>
         internal static string ButtonDesign {
             get {
@@ -147,6 +147,24 @@ namespace Surveyval {
         internal static string DesignButtonSave {
             get {
                 return ResourceManager.GetString("DesignButtonSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save changes ähnelt.
+        /// </summary>
+        internal static string DesignCancelChanges1 {
+            get {
+                return ResourceManager.GetString("DesignCancelChanges1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want to save your changes to ähnelt.
+        /// </summary>
+        internal static string DesignCancelChanges2 {
+            get {
+                return ResourceManager.GetString("DesignCancelChanges2", resourceCulture);
             }
         }
         
@@ -259,7 +277,7 @@ namespace Surveyval {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Questionnaire Design ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Questionnaire-Manager ähnelt.
         /// </summary>
         internal static string DesignTitle {
             get {

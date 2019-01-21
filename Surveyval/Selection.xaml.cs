@@ -80,6 +80,7 @@ namespace Surveyval
         {
             Design dlgDesign = new Design();
 
+            dlgDesign.Title = strings.DesignTitle;
             dlgDesign.ShowDialog();
             this.Close();
         }

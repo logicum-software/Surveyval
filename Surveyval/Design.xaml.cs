@@ -91,6 +91,12 @@ namespace Surveyval
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
+            if (tmpFragebogen.Fragen.Count > 0)
+            {
+                if (MessageBox.Show(strings.DesignCancelChanges2 + "\n\n" + textBoxName.Text + " ?",
+                    strings.DesignCancelChanges1, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    return;
+            }
             this.Close();
         }
 
@@ -164,7 +170,17 @@ namespace Surveyval
                     return;
             }
 
-            foreach (Fragebogen item in appData.appFrageboegen)
+            if (!appData.appFrageboegen.Contains(tmpFragebogen))
+            {
+                if (MessageBox.Show(strings.DesignSaveExists, strings.DesignSave, MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return;
+
+                appData.appFrageboegen.Remove(tmpFragebogen);
+                appData.appFrageboegen.Add(tmpFragebogen);
+                appData.save();
+            }
+
+            /*foreach (Fragebogen item in appData.appFrageboegen)
             {
                 if (item.strName.Equals(tmpFragebogen.strName))
                 {
@@ -172,14 +188,6 @@ namespace Surveyval
                         return;
 
                     appData.appFrageboegen.Remove(item);
-
-                    /*item.strName = tmpFragebogen.strName;
-                    item.Fragen = tmpFragebogen.Fragen;
-                    appData.save();
-                    //bChanged = false;
-                    MessageBox.Show(strings.DesignSaveNoQuestions1 + "\n\n" + tmpFragebogen.strName + "\n\n" +
-                        strings.DesignSaveDone, strings.DesignSave, MessageBoxButton.OK);
-                    return;*/
                 }
             }
 
@@ -187,7 +195,7 @@ namespace Surveyval
             appData.save();
             //bChanged = false;
             MessageBox.Show(strings.DesignSaveNoQuestions1 + "\n\n" + tmpFragebogen.strName + "\n\n" +
-                strings.DesignSaveDone, strings.DesignSave, MessageBoxButton.OK);
+                strings.DesignSaveDone, strings.DesignSave, MessageBoxButton.OK);*/
         }
 
         private void ButtonAddQuestion_Click(object sender, RoutedEventArgs e)

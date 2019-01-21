@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ButtonDesign" xml:space="preserve">
-    <value>Questionnaire Design</value>
+    <value>Questionnaire-Manager</value>
   </data>
   <data name="DesignAddQuestion1" xml:space="preserve">
     <value>The question:</value>
@@ -146,6 +146,12 @@
   </data>
   <data name="DesignButtonSave" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="DesignCancelChanges1" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="DesignCancelChanges2" xml:space="preserve">
+    <value>Do you want to save your changes to</value>
   </data>
   <data name="DesignDeleteQuestion1" xml:space="preserve">
     <value>Delete question</value>
@@ -184,7 +190,7 @@
     <value>does not contain any questions. Do you want to save it anyway?</value>
   </data>
   <data name="DesignTitle" xml:space="preserve">
-    <value>Questionnaire Design</value>
+    <value>Questionnaire-Manager</value>
   </data>
   <data name="MainWindow" xml:space="preserve">
     <value>Surveyval</value>
