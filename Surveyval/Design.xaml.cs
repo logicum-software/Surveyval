@@ -32,6 +32,9 @@ namespace Surveyval
             buttonAddQuestion.Content = strings.DesignButtonAddQuestion;
             buttonRemoveQuestion.Content = strings.DesignButtonRemoveQuestion;
 
+            ((System.Windows.Controls.GridView)listViewIncluded.View).Columns[0].Header = strings.DesignListViewTextLabel;
+            ((System.Windows.Controls.GridView)listViewCatalog.View).Columns[0].Header = strings.DesignListViewTextLabel;
+
             appData = new AppData();
 
             int i = 1;

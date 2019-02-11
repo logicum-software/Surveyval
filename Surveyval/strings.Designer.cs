@@ -223,6 +223,15 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Question ähnelt.
+        /// </summary>
+        internal static string DesignListViewTextLabel {
+            get {
+                return ResourceManager.GetString("DesignListViewTextLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die New Questionnaire ähnelt.
         /// </summary>
         internal static string DesignNewQuestionnaireText {
