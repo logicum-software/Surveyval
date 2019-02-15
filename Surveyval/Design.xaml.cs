@@ -212,7 +212,22 @@ namespace Surveyval
 
         private void TextBoxName_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
+            //tmpFragebogen.strName = textBoxName.Text;
+        }
+
+        private void TextBoxName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Geänderten Namen speichern?", "Namen ändern", MessageBoxButton.YesNo) == MessageBoxResult.No)
+            {
+                textBoxName.Text = tmpFragebogen.strName;
+                return;
+            }
+
             tmpFragebogen.strName = textBoxName.Text;
+            appData.removeFragebogen(tmpFragebogen);
+            appData.appFrageboegen.Add(tmpFragebogen);
+            appData.save();
+            refreshLists();
         }
     }
 }

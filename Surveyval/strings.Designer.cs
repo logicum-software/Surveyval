@@ -457,6 +457,15 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The questionnaire has been deleted. ähnelt.
+        /// </summary>
+        internal static string SelectionDeleteDeleted {
+            get {
+                return ResourceManager.GetString("SelectionDeleteDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to delete the following questionnaire? ähnelt.
         /// </summary>
         internal static string SelectionDeleteText {

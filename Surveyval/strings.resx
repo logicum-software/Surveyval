@@ -249,6 +249,9 @@
   <data name="SelectionButtonNew" xml:space="preserve">
     <value>Create new</value>
   </data>
+  <data name="SelectionDeleteDeleted" xml:space="preserve">
+    <value>The questionnaire has been deleted.</value>
+  </data>
   <data name="SelectionDeleteText" xml:space="preserve">
     <value>Do you really want to delete the following questionnaire?</value>
   </data>

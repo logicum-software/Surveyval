@@ -49,7 +49,7 @@ namespace Surveyval
             Design dlgDesign = new Design();
 
             dlgDesign.Title = strings.DesignTitle;
-            //dlgDesign.setFragebogen(listViewSelect.g);
+            dlgDesign.setFragebogen(appData.appFrageboegen[listViewSelect.SelectedIndex]);
             dlgDesign.ShowDialog();
             this.Close();
         }
@@ -61,6 +61,11 @@ namespace Surveyval
                 if (MessageBox.Show(strings.SelectionDeleteText + "\n\n" + appData.appFrageboegen[listViewSelect.SelectedIndex].strName,
                     strings.SelectionDeleteTitle, MessageBoxButton.YesNo) == MessageBoxResult.No)
                     return;
+
+                appData.appFrageboegen.RemoveAt(listViewSelect.SelectedIndex);
+                appData.save();
+                listViewSelect.Items.Refresh();
+                MessageBox.Show(strings.SelectionDeleteDeleted, strings.SelectionDeleteTitle, MessageBoxButton.OK);
             }
         }
     }
