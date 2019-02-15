@@ -75,5 +75,15 @@ namespace Surveyval
                 fs.Close();
             }
         }
+
+        internal Boolean isContaining(Fragebogen tmp)
+        {
+            foreach (Fragebogen item in appFrageboegen)
+            {
+                if (tmp.strName.Equals(item.strName))
+                    return true;
+            }
+            return false;
+        }
     }
 }
