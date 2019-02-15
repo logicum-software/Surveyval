@@ -240,11 +240,20 @@
   <data name="SelectionButtonCancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="SelectionButtonDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="SelectionButtonLoad" xml:space="preserve">
     <value>Load</value>
   </data>
   <data name="SelectionButtonNew" xml:space="preserve">
     <value>Create new</value>
+  </data>
+  <data name="SelectionDeleteText" xml:space="preserve">
+    <value>Do you really want to delete the following questionnaire?</value>
+  </data>
+  <data name="SelectionDeleteTitle" xml:space="preserve">
+    <value>Delete questionnaire</value>
   </data>
   <data name="SelectionTitle" xml:space="preserve">
     <value>Select Questionnaire</value>

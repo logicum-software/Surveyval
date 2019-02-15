@@ -37,30 +37,33 @@ namespace Surveyval
 
             appData = new AppData();
 
-            int i = 1;
-            Boolean bFound = false;
-
-            if (appData.appFrageboegen.Count > 0)
+            if (tmpFragebogen.strName.Length < 1)
             {
-                while (!bFound)
-                {
-                    foreach (Fragebogen item in appData.appFrageboegen)
-                    {
-                        if (item.strName.Equals(strings.DesignNewQuestionnaireText + i))
-                        {
-                            i++;
-                            break;
-                        }
+                int i = 1;
+                Boolean bFound = false;
 
-                        if (item.strName.Equals(appData.appFrageboegen[appData.appFrageboegen.Count - 1].strName))
-                            bFound = true;
+                if (appData.appFrageboegen.Count > 0)
+                {
+                    while (!bFound)
+                    {
+                        foreach (Fragebogen item in appData.appFrageboegen)
+                        {
+                            if (item.strName.Equals(strings.DesignNewQuestionnaireText + i))
+                            {
+                                i++;
+                                break;
+                            }
+
+                            if (item.strName.Equals(appData.appFrageboegen[appData.appFrageboegen.Count - 1].strName))
+                                bFound = true;
+                        }
                     }
                 }
+                tmpFragebogen.strName = strings.DesignNewQuestionnaireText + i;
             }
 
             // Initialize fields
-            textBoxName.Text = strings.DesignNewQuestionnaireText + i;
-            tmpFragebogen.strName = textBoxName.Text;
+            textBoxName.Text = tmpFragebogen.strName;
             listViewIncluded.ItemsSource = tmpFragebogen.Fragen;
             listViewCatalog.ItemsSource = appData.appFragen;
             refreshLists();
@@ -173,32 +176,20 @@ namespace Surveyval
                     return;
             }
 
-            if (!appData.appFrageboegen.Contains(tmpFragebogen))
+            if (appData.isContaining(tmpFragebogen))
             {
                 if (MessageBox.Show(strings.DesignSaveExists, strings.DesignSave, MessageBoxButton.YesNo) == MessageBoxResult.No)
                     return;
 
-                appData.appFrageboegen.Remove(tmpFragebogen);
+                appData.removeFragebogen(tmpFragebogen);
                 appData.appFrageboegen.Add(tmpFragebogen);
                 appData.save();
             }
 
-            /*foreach (Fragebogen item in appData.appFrageboegen)
-            {
-                if (item.strName.Equals(tmpFragebogen.strName))
-                {
-                    if (MessageBox.Show(strings.DesignSaveExists, strings.DesignSave, MessageBoxButton.YesNo) == MessageBoxResult.No)
-                        return;
-
-                    appData.appFrageboegen.Remove(item);
-                }
-            }
-
             appData.appFrageboegen.Add(tmpFragebogen);
             appData.save();
-            //bChanged = false;
-            MessageBox.Show(strings.DesignSaveNoQuestions1 + "\n\n" + tmpFragebogen.strName + "\n\n" +
-                strings.DesignSaveDone, strings.DesignSave, MessageBoxButton.OK);*/
+            MessageBox.Show(strings.DesignSave + "\n\n" + tmpFragebogen.strName + "\n\n" +
+                strings.DesignSaveDone, strings.DesignSave, MessageBoxButton.OK);
         }
 
         private void ButtonAddQuestion_Click(object sender, RoutedEventArgs e)

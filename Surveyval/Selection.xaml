@@ -14,9 +14,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="buttonLoad" Content="" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="buttonLoad" Content="" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom" Click="ButtonLoad_Click" IsEnabled="False"/>
         <Button x:Name="buttonCancel" Content="" Margin="389,0,10,10" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
         <Button x:Name="buttonNew" Content="" HorizontalAlignment="Left" Margin="90,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom" Click="ButtonNew_Click"/>
+        <Button x:Name="buttonDelete" Content="" HorizontalAlignment="Left" Margin="170,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom" Click="ButtonDelete_Click" IsEnabled="False"/>
 
     </Grid>
 </Window>
