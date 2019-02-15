@@ -171,6 +171,9 @@
   <data name="DesignLabelName" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="DesignListViewTextLabel" xml:space="preserve">
+    <value>Question</value>
+  </data>
   <data name="DesignNewQuestionnaireText" xml:space="preserve">
     <value>New Questionnaire</value>
   </data>
