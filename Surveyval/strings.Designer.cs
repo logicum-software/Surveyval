@@ -241,6 +241,24 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The question: ähnelt.
+        /// </summary>
+        internal static string DesignRemoveQuestion1 {
+            get {
+                return ResourceManager.GetString("DesignRemoveQuestion1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die has been removed from the questionnaire. ähnelt.
+        /// </summary>
+        internal static string DesignRemoveQuestion2 {
+            get {
+                return ResourceManager.GetString("DesignRemoveQuestion2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Save questionnaire ähnelt.
         /// </summary>
         internal static string DesignSave {

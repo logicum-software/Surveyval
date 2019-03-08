@@ -177,6 +177,12 @@
   <data name="DesignNewQuestionnaireText" xml:space="preserve">
     <value>New Questionnaire</value>
   </data>
+  <data name="DesignRemoveQuestion1" xml:space="preserve">
+    <value>The question:</value>
+  </data>
+  <data name="DesignRemoveQuestion2" xml:space="preserve">
+    <value>has been removed from the questionnaire.</value>
+  </data>
   <data name="DesignSave" xml:space="preserve">
     <value>Save questionnaire</value>
   </data>

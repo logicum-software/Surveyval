@@ -10,7 +10,7 @@
         <Label x:Name="labelName" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="53,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="314" TextChanged="TextBoxName_TextChanged" LostFocus="TextBoxName_LostFocus"/>
         <Label x:Name="labelIncluded" Content="" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="164"/>
-        <ListView x:Name="listViewIncluded" Margin="10,93,10,314">
+        <ListView x:Name="listViewIncluded" Margin="10,93,10,314" SelectionChanged="ListViewIncluded_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=strFragetext}"/>
