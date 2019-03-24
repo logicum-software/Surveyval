@@ -241,6 +241,24 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The question: ähnelt.
+        /// </summary>
+        internal static string DesignRemoveQuestion1 {
+            get {
+                return ResourceManager.GetString("DesignRemoveQuestion1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die has been removed from the questionnaire. ähnelt.
+        /// </summary>
+        internal static string DesignRemoveQuestion2 {
+            get {
+                return ResourceManager.GetString("DesignRemoveQuestion2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Save questionnaire ähnelt.
         /// </summary>
         internal static string DesignSave {
@@ -430,6 +448,15 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete ähnelt.
+        /// </summary>
+        internal static string SelectionButtonDelete {
+            get {
+                return ResourceManager.GetString("SelectionButtonDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Load ähnelt.
         /// </summary>
         internal static string SelectionButtonLoad {
@@ -444,6 +471,33 @@ namespace Surveyval {
         internal static string SelectionButtonNew {
             get {
                 return ResourceManager.GetString("SelectionButtonNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The questionnaire has been deleted. ähnelt.
+        /// </summary>
+        internal static string SelectionDeleteDeleted {
+            get {
+                return ResourceManager.GetString("SelectionDeleteDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to delete the following questionnaire? ähnelt.
+        /// </summary>
+        internal static string SelectionDeleteText {
+            get {
+                return ResourceManager.GetString("SelectionDeleteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete questionnaire ähnelt.
+        /// </summary>
+        internal static string SelectionDeleteTitle {
+            get {
+                return ResourceManager.GetString("SelectionDeleteTitle", resourceCulture);
             }
         }
         

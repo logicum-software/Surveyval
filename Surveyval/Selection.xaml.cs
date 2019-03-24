@@ -19,52 +19,10 @@ namespace Surveyval
             buttonLoad.Content = strings.SelectionButtonLoad;
             buttonCancel.Content = strings.SelectionButtonCancel;
             buttonNew.Content = strings.SelectionButtonNew;
+            buttonDelete.Content = strings.SelectionButtonDelete;
             appData = new AppData();
             listViewSelect.ItemsSource = appData.appFrageboegen;
         }
-
-/*        private void saveData(AppData appData)
-        {
-            FileStream fs = new FileStream("udata.dat", FileMode.Create);
-
-            // Construct a BinaryFormatter and use it to serialize the data to the stream.
-            BinaryFormatter formatter = new BinaryFormatter();
-            try
-            {
-                formatter.Serialize(fs, appData);
-            }
-            catch (SerializationException ec)
-            {
-                MessageBox.Show(ec.Message, "Speicherfehler", MessageBoxButton.OK);
-                //Console.WriteLine("Failed to serialize. Reason: " + ec.Message);
-                throw;
-            }
-            finally
-            {
-                fs.Close();
-            }
-        }
-
-        private AppData loadData()
-        {
-            AppData appData;
-
-            IFormatter formatter = new BinaryFormatter();
-            try
-            {
-                Stream stream = new FileStream("udata.dat", FileMode.Open, FileAccess.Read, FileShare.Read);
-                appData = (AppData)formatter.Deserialize(stream);
-                stream.Close();
-            }
-            catch (FileNotFoundException e)
-            {
-                MessageBox.Show(e.Message, "Dateifehler", MessageBoxButton.OK);
-                appData = new AppData();
-                //Application.Current.Shutdown();
-                //throw;
-            }
-            return appData;
-        }*/
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -73,7 +31,8 @@ namespace Surveyval
 
         private void ListViewSelect_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-
+            buttonLoad.IsEnabled = true;
+            buttonDelete.IsEnabled = true;
         }
 
         private void ButtonNew_Click(object sender, RoutedEventArgs e)
@@ -83,6 +42,31 @@ namespace Surveyval
             dlgDesign.Title = strings.DesignTitle;
             dlgDesign.ShowDialog();
             this.Close();
+        }
+
+        private void ButtonLoad_Click(object sender, RoutedEventArgs e)
+        {
+            Design dlgDesign = new Design();
+
+            dlgDesign.Title = strings.DesignTitle;
+            dlgDesign.setFragebogen(appData.appFrageboegen[listViewSelect.SelectedIndex]);
+            dlgDesign.ShowDialog();
+            this.Close();
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (listViewSelect.SelectedItem != null)
+            {
+                if (MessageBox.Show(strings.SelectionDeleteText + "\n\n" + appData.appFrageboegen[listViewSelect.SelectedIndex].strName,
+                    strings.SelectionDeleteTitle, MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return;
+
+                appData.appFrageboegen.RemoveAt(listViewSelect.SelectedIndex);
+                appData.save();
+                listViewSelect.Items.Refresh();
+                MessageBox.Show(strings.SelectionDeleteDeleted, strings.SelectionDeleteTitle, MessageBoxButton.OK);
+            }
         }
     }
 }

@@ -69,5 +69,14 @@ namespace Surveyval
             }
             return false;
         }
+
+        internal void removeFragebogen(Fragebogen tmp)
+        {
+            foreach (Fragebogen item in appFrageboegen)
+            {
+                if (item.strName.Equals(tmp.strName))
+                    appFrageboegen.Remove(item);
+            }
+        }
     }
 }

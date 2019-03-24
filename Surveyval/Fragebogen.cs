@@ -31,5 +31,15 @@ namespace Surveyval
 
             //return base.Equals(obj);
         }
+
+        internal Boolean isContaining(Frage tmp)
+        {
+            foreach (Frage item in Fragen)
+            {
+                if (item.strFragetext.Equals(tmp.strFragetext))
+                    return true;
+            }
+            return false;
+        }
     }
 }
