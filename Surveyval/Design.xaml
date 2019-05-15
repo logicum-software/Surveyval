@@ -21,7 +21,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock Text="{Binding strFragetext}" FontSize="20" FontWeight="Bold" />
+                                <CheckBox x:Name="checkBox" Content="{Binding strFragetext}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
