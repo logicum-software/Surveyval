@@ -14,29 +14,42 @@ namespace Surveyval
     public partial class Design : Window
     {
         private AppData appData;
-        private Fragebogen tmpFragebogen = new Fragebogen();
-        private List<Frage> tmpFragen = new List<Frage>();
 
         public Design()
         {
             InitializeComponent();
 
             // initialize Control labels
-            labelName.Content = strings.DesignLabelName;
-            labelIncluded.Content = strings.DesignLabelIncluded;
-            labelCatalog.Content = strings.DesignLabelCatalog;
             buttonCancel.Content = strings.DesignButtonCancel;
-            buttonSave.Content = strings.DesignButtonSave;
             buttonNewQuestion.Content = strings.DesignButtonNewQuestion;
             buttonDelQuestion.Content = strings.DesignButtonDelQuestion;
-            buttonAddQuestion.Content = strings.DesignButtonAddQuestion;
-            buttonRemoveQuestion.Content = strings.DesignButtonRemoveQuestion;
-            ((System.Windows.Controls.GridView)listViewIncluded.View).Columns[0].Header = strings.DesignListViewTextLabel;
-            ((System.Windows.Controls.GridView)listViewCatalog.View).Columns[0].Header = strings.DesignListViewTextLabel;
+            /*buttonAddQuestion.Content = strings.DesignButtonAddQuestion;
+            buttonRemoveQuestion.Content = strings.DesignButtonRemoveQuestion;*/
+            buttonNewQuestionnaire.Content = strings.DesignButtonNewQuestionnaire;
+            buttonDelQuestionnaire.Content = strings.DesignButtonDelQuestionnaire;
+            groupBoxQuestionnaire.Header = strings.DesignGroupBoxQuestionnaireCatalog;
+            groupBoxQuestion.Header = strings.DesignGroupBoxQuestionCatalog;
+            /*((System.Windows.Controls.GridView)listViewIncluded.View).Columns[0].Header = strings.DesignListViewTextLabel;
+            ((System.Windows.Controls.GridView)listViewCatalog.View).Columns[0].Header = strings.DesignListViewTextLabel;*/
 
             appData = new AppData();
 
-            if (tmpFragebogen.strName.Length < 1)
+            //Daten einlesen aus Datei "udata.dat"
+            IFormatter formatter = new BinaryFormatter();
+            try
+            {
+                Stream stream = new FileStream("udata.dat", FileMode.Open, FileAccess.Read, FileShare.Read);
+                appData = (AppData)formatter.Deserialize(stream);
+                stream.Close();
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show(e.Message, "Dateifehler", MessageBoxButton.OK);
+                //throw;
+            }
+
+            // Nachfolgendes muss in "Neuer Fragebogen"
+            /*if (tmpFragebogen.strName.Length < 1)
             {
                 int i = 1;
                 Boolean bFound = false;
@@ -59,18 +72,17 @@ namespace Surveyval
                     }
                 }
                 tmpFragebogen.strName = strings.DesignNewQuestionnaireText + i;
-            }
+            }*/
 
             // Initialize fields
-            textBoxName.Text = tmpFragebogen.strName;
-            listViewIncluded.ItemsSource = tmpFragebogen.Fragen;
-            listViewCatalog.ItemsSource = tmpFragen;
-            refreshLists();
+            /*listViewIncluded.ItemsSource = appData.appFrageboegen[0].Fragen;
+            listViewCatalog.ItemsSource = appData.appFragen;
+            refreshLists();*/
         }
 
         private void refreshLists()
         {
-            tmpFragen.Clear();
+            /*tmpFragen.Clear();
 
             foreach (Frage item in appData.appFragen)
             {
@@ -80,31 +92,16 @@ namespace Surveyval
 
             listViewIncluded.Items.Refresh();
             listViewCatalog.Items.Refresh();
-            textBoxName.Text = tmpFragebogen.strName;
+            textBoxName.Text = tmpFragebogen.strName;*/
 
             // Spaltenbreite neu anpassen
-            listViewIncluded.UpdateLayout();
-            listViewCatalog.UpdateLayout();
-        }
-
-
-        internal void setFragebogen(Fragebogen fragebogen)
-        {
-            tmpFragebogen.strName = fragebogen.strName;
-
-            foreach (Frage item in fragebogen.Fragen)
-                tmpFragebogen.Fragen.Add(item);
+            /*listViewIncluded.UpdateLayout();
+            listViewCatalog.UpdateLayout();*/
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (tmpFragebogen.Fragen.Count > 0)
-            {
-                if (MessageBox.Show(strings.DesignCancelChanges2 + "\n\n" + textBoxName.Text + " ?",
-                    strings.DesignCancelChanges1, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                    return;
-            }
-            this.Close();
+            Close();
         }
 
         private void ButtonNewQuestion_Click(object sender, RoutedEventArgs e)
@@ -134,7 +131,7 @@ namespace Surveyval
 
         private void ButtonDelQuestion_Click(object sender, RoutedEventArgs e)
         {
-            if (listViewCatalog.SelectedItem != null)
+            /*if (listViewCatalog.SelectedItem != null)
             {
                 if (MessageBox.Show(strings.DesignDeleteQuestion2 + "\n\n" +
                     appData.appFragen.ElementAt(listViewCatalog.SelectedIndex).strFragetext +
@@ -146,10 +143,10 @@ namespace Surveyval
                     appData.save();
                     refreshLists();
                 }
-            }
+            }*/
         }
 
-        private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        /*private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             listViewIncluded.SelectedItem = null;
 
@@ -164,37 +161,9 @@ namespace Surveyval
                 buttonDelQuestion.IsEnabled = false;
                 buttonRemoveQuestion.IsEnabled = false;
             }
-        }
+        }*/
 
-        private void ButtonSave_Click(object sender, RoutedEventArgs e)
-        {
-            // Keine Fragen im Fragebogen
-            if (tmpFragebogen.Fragen.Count < 1)
-            {
-                if (MessageBox.Show(strings.DesignSaveNoQuestions1 + "\n\n" + tmpFragebogen.strName + "\n\n" +
-                    strings.DesignSaveNoQuestions2, strings.DesignSave, MessageBoxButton.YesNo) == MessageBoxResult.No)
-                    return;
-            }
-
-            // Fragebogen vorhanden
-            if (appData.isContaining(tmpFragebogen))
-            {
-                if (MessageBox.Show(strings.DesignSaveExists, strings.DesignSave, MessageBoxButton.YesNo) == MessageBoxResult.No)
-                    return;
-
-                appData.removeFragebogen(tmpFragebogen);
-                appData.appFrageboegen.Add(tmpFragebogen);
-                appData.save();
-            }
-
-            // Fragebogen speichern
-            appData.appFrageboegen.Add(tmpFragebogen);
-            appData.save();
-            MessageBox.Show(strings.DesignSave + "\n\n" + tmpFragebogen.strName + "\n\n" +
-                strings.DesignSaveDone, strings.DesignSave, MessageBoxButton.OK);
-        }
-
-        private void ButtonAddQuestion_Click(object sender, RoutedEventArgs e)
+        /*private void ButtonAddQuestion_Click(object sender, RoutedEventArgs e)
         {
             if (listViewCatalog.SelectedItem != null)
             {
@@ -206,42 +175,21 @@ namespace Surveyval
                 buttonRemoveQuestion.IsEnabled = false;
                 buttonAddQuestion.IsEnabled = false;
             }
-        }
+        }*/
 
-        private void ButtonRemoveQuestion_Click(object sender, RoutedEventArgs e)
+        /*private void ButtonRemoveQuestion_Click(object sender, RoutedEventArgs e)
         {
             if (listViewIncluded.SelectedItem != null)
             {
-                MessageBox.Show(strings.DesignRemoveQuestion1 + "\n\n" + tmpFragebogen.Fragen.ElementAt(listViewIncluded.SelectedIndex).strFragetext +
+                MessageBox.Show(strings.DesignRemoveQuestion1 + "\n\n" + appData.appFrageboegen[listappFragen.ElementAt(listViewIncluded.SelectedIndex).strFragetext +
                     "\n\n" + strings.DesignRemoveQuestion2, strings.DesignButtonRemoveQuestion, MessageBoxButton.OK);
                 tmpFragebogen.Fragen.RemoveAt(listViewIncluded.SelectedIndex);
                 tmpFragen.Add(appData.appFragen.ElementAt(listViewIncluded.SelectedIndex));
                 refreshLists();
             }
+        }*/
 
-        }
-
-        private void TextBoxName_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            //tmpFragebogen.strName = textBoxName.Text;
-        }
-
-        private void TextBoxName_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (MessageBox.Show("Geänderten Namen speichern?", "Namen ändern", MessageBoxButton.YesNo) == MessageBoxResult.No)
-            {
-                textBoxName.Text = tmpFragebogen.strName;
-                return;
-            }
-
-            tmpFragebogen.strName = textBoxName.Text;
-            appData.removeFragebogen(tmpFragebogen);
-            appData.appFrageboegen.Add(tmpFragebogen);
-            appData.save();
-            refreshLists();
-        }
-
-        private void ListViewIncluded_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        /*private void ListViewIncluded_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             listViewCatalog.SelectedItem = null;
 
@@ -255,6 +203,6 @@ namespace Surveyval
             {
                 buttonDelQuestion.IsEnabled = true;
             }
-        }
+        }*/
     }
 }

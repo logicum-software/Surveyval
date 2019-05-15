@@ -133,13 +133,19 @@
     <value>Add question</value>
   </data>
   <data name="DesignButtonCancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Close</value>
   </data>
   <data name="DesignButtonDelQuestion" xml:space="preserve">
     <value>Delete question</value>
   </data>
+  <data name="DesignButtonDelQuestionnaire" xml:space="preserve">
+    <value>Delete questionnaire</value>
+  </data>
   <data name="DesignButtonNewQuestion" xml:space="preserve">
     <value>New question</value>
+  </data>
+  <data name="DesignButtonNewQuestionnaire" xml:space="preserve">
+    <value>New questionnaire</value>
   </data>
   <data name="DesignButtonRemoveQuestion" xml:space="preserve">
     <value>Remove question</value>
@@ -161,6 +167,12 @@
   </data>
   <data name="DesignDeleteQuestion3" xml:space="preserve">
     <value>(You won´t be able to use it anymore)</value>
+  </data>
+  <data name="DesignGroupBoxQuestionCatalog" xml:space="preserve">
+    <value>Question-Catalog</value>
+  </data>
+  <data name="DesignGroupBoxQuestionnaireCatalog" xml:space="preserve">
+    <value>Questionnaire-Catalog</value>
   </data>
   <data name="DesignLabelCatalog" xml:space="preserve">
     <value>Questions catalog</value>

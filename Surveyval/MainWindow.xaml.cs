@@ -29,9 +29,10 @@ namespace Surveyval
 
         private void ButtonDesign_Click(object sender, RoutedEventArgs e)
         {
-            Selection dlgSelect = new Selection();
+            Design dlgDesign = new Design();
 
-            dlgSelect.ShowDialog();
+            dlgDesign.Title = strings.DesignTitle;
+            dlgDesign.ShowDialog();
         }
     }
 }

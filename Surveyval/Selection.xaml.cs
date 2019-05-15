@@ -49,7 +49,6 @@ namespace Surveyval
             Design dlgDesign = new Design();
 
             dlgDesign.Title = strings.DesignTitle;
-            dlgDesign.setFragebogen(appData.appFrageboegen[listViewSelect.SelectedIndex]);
             dlgDesign.ShowDialog();
             this.Close();
         }

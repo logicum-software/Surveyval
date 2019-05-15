@@ -19,7 +19,7 @@ namespace Surveyval {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class strings {
@@ -106,7 +106,7 @@ namespace Surveyval {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Close ähnelt.
         /// </summary>
         internal static string DesignButtonCancel {
             get {
@@ -124,11 +124,29 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete questionnaire ähnelt.
+        /// </summary>
+        internal static string DesignButtonDelQuestionnaire {
+            get {
+                return ResourceManager.GetString("DesignButtonDelQuestionnaire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die New question ähnelt.
         /// </summary>
         internal static string DesignButtonNewQuestion {
             get {
                 return ResourceManager.GetString("DesignButtonNewQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die New questionnaire ähnelt.
+        /// </summary>
+        internal static string DesignButtonNewQuestionnaire {
+            get {
+                return ResourceManager.GetString("DesignButtonNewQuestionnaire", resourceCulture);
             }
         }
         
@@ -192,6 +210,24 @@ namespace Surveyval {
         internal static string DesignDeleteQuestion3 {
             get {
                 return ResourceManager.GetString("DesignDeleteQuestion3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Question-Catalog ähnelt.
+        /// </summary>
+        internal static string DesignGroupBoxQuestionCatalog {
+            get {
+                return ResourceManager.GetString("DesignGroupBoxQuestionCatalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Questionnaire-Catalog ähnelt.
+        /// </summary>
+        internal static string DesignGroupBoxQuestionnaireCatalog {
+            get {
+                return ResourceManager.GetString("DesignGroupBoxQuestionnaireCatalog", resourceCulture);
             }
         }
         

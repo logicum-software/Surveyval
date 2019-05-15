@@ -7,30 +7,21 @@
         mc:Ignorable="d"
         Title="Questionnaire Design" Height="640" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label x:Name="labelName" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="53,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="314" TextChanged="TextBoxName_TextChanged" LostFocus="TextBoxName_LostFocus"/>
-        <Label x:Name="labelIncluded" Content="" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="164"/>
-        <ListView x:Name="listViewIncluded" Margin="10,93,10,314" SelectionChanged="ListViewIncluded_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=strFragetext}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Label x:Name="labelCatalog" Content="" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Width="140"/>
-        <ListView x:Name="listViewCatalog" Margin="10,356,10,51" SelectionChanged="ListViewCatalog_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=strFragetext}" Header="Fragetext"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
         <Button x:Name="buttonCancel" Content="" Margin="933,0,10,10" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
-        <Button x:Name="buttonSave" Content="" Margin="853,0,90,10" Height="20" VerticalAlignment="Bottom" Click="ButtonSave_Click"/>
-        <Button x:Name="buttonNewQuestion" Content="" Margin="0,331,763,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Click="ButtonNewQuestion_Click"/>
-        <Button x:Name="buttonDelQuestion" Content="" HorizontalAlignment="Left" Margin="260,331,0,0" VerticalAlignment="Top" Width="100" Click="ButtonDelQuestion_Click" IsEnabled="False"/>
-        <Button x:Name="buttonRemoveQuestion" Content="" Margin="898,302,10,0" VerticalAlignment="Top" IsEnabled="False" Click="ButtonRemoveQuestion_Click"/>
-        <Button x:Name="buttonAddQuestion" Content="" Margin="783,302,125,0" VerticalAlignment="Top" IsEnabled="False" Click="ButtonAddQuestion_Click"/>
+        <GroupBox x:Name="groupBoxQuestionnaire" Header="" Height="250" Margin="10,10,10,0" VerticalAlignment="Top">
+            <Grid Margin="0">
+                <ListBox x:Name="listBox" Height="185" Margin="10,10,10,0" VerticalAlignment="Top"/>
+                <Button x:Name="buttonNewQuestionnaire" Content="" Margin="721,0,145,6" VerticalAlignment="Bottom"/>
+                <Button x:Name="buttonDelQuestionnaire" Content="" Margin="846,0,10,6" Height="20" VerticalAlignment="Bottom"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBoxQuestion" Header="" Height="250" Margin="10,275,10,0" VerticalAlignment="Top">
+            <Grid Margin="0">
+                <ListBox x:Name="listBoxQuestion" Height="184" Margin="10,10,10,0" VerticalAlignment="Top"/>
+                <Button x:Name="buttonNewQuestion" Content="" Margin="771,0,115,9" Click="ButtonNewQuestion_Click" Height="20" VerticalAlignment="Bottom"/>
+                <Button x:Name="buttonDelQuestion" Content="" Margin="876,0,10,9" Click="ButtonDelQuestion_Click" IsEnabled="False" Height="20" VerticalAlignment="Bottom"/>
+            </Grid>
+        </GroupBox>
 
     </Grid>
 </Window>
