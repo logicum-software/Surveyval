@@ -103,6 +103,7 @@ namespace Surveyval
 
         private void refreshLists()
         {
+            listBoxQuestion.Items.Refresh();
             /*tmpFragen.Clear();
 
             foreach (Frage item in appData.appFragen)
