@@ -10,14 +10,22 @@
         <Button x:Name="buttonCancel" Content="" Margin="933,0,10,10" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
         <GroupBox x:Name="groupBoxQuestionnaire" Header="" Height="250" Margin="10,10,10,0" VerticalAlignment="Top">
             <Grid Margin="0">
-                <ListBox x:Name="listBox" Height="185" Margin="10,10,10,0" VerticalAlignment="Top"/>
+                <ListBox x:Name="listBoxQuestionnaire" Height="185" Margin="10,10,10,0" VerticalAlignment="Top"/>
                 <Button x:Name="buttonNewQuestionnaire" Content="" Margin="721,0,145,6" VerticalAlignment="Bottom"/>
                 <Button x:Name="buttonDelQuestionnaire" Content="" Margin="846,0,10,6" Height="20" VerticalAlignment="Bottom"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBoxQuestion" Header="" Height="250" Margin="10,275,10,0" VerticalAlignment="Top">
             <Grid Margin="0">
-                <ListBox x:Name="listBoxQuestion" Height="184" Margin="10,10,10,0" VerticalAlignment="Top"/>
+                <ListBox x:Name="listBoxQuestion" Height="184" Margin="10,10,10,0" VerticalAlignment="Top">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding strFragetext}" FontSize="20" FontWeight="Bold" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
                 <Button x:Name="buttonNewQuestion" Content="" Margin="771,0,115,9" Click="ButtonNewQuestion_Click" Height="20" VerticalAlignment="Bottom"/>
                 <Button x:Name="buttonDelQuestion" Content="" Margin="876,0,10,9" Click="ButtonDelQuestion_Click" IsEnabled="False" Height="20" VerticalAlignment="Bottom"/>
             </Grid>

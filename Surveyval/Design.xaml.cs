@@ -75,9 +75,30 @@ namespace Surveyval
             }*/
 
             // Initialize fields
-            /*listViewIncluded.ItemsSource = appData.appFrageboegen[0].Fragen;
-            listViewCatalog.ItemsSource = appData.appFragen;
-            refreshLists();*/
+            listBoxQuestion.ItemsSource = appData.appFragen;
+            //refreshLists();
+        }
+
+        private void saveData()
+        {
+            FileStream fs = new FileStream("udata.dat", FileMode.Create);
+
+            // Construct a BinaryFormatter and use it to serialize the data to the stream.
+            BinaryFormatter formatter = new BinaryFormatter();
+            try
+            {
+                formatter.Serialize(fs, appData);
+            }
+            catch (SerializationException ec)
+            {
+                MessageBox.Show(ec.Message, "Speicherfehler", MessageBoxButton.OK);
+                //Console.WriteLine("Failed to serialize. Reason: " + ec.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
         }
 
         private void refreshLists()
@@ -123,7 +144,7 @@ namespace Surveyval
                     }
                 }
                 appData.appFragen.Add(dlgNewQuestion.getFrage());
-                appData.save();
+                saveData();
                 MessageBox.Show(strings.NewQuestionSaved2, strings.NewQuestionSaved1, MessageBoxButton.OK);
                 refreshLists();
             }

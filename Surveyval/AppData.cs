@@ -19,9 +19,9 @@ namespace Surveyval
             appFragen = new List<Frage>();
         }
 
-        internal void save()
+        /*internal void save()
         {
-            FileStream fs = new FileStream("udata1.dat", FileMode.Create);
+            FileStream fs = new FileStream("udata.dat", FileMode.Create);
 
             // Construct a BinaryFormatter and use it to serialize the data to the stream.
             BinaryFormatter formatter = new BinaryFormatter();
@@ -58,7 +58,7 @@ namespace Surveyval
             {
                 fs.Close();
             }
-        }
+        }*/
 
         internal Boolean isContaining(Fragebogen tmp)
         {

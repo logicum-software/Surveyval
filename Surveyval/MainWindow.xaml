@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Surveyval"
         mc:Ignorable="d" Height="400" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="buttonDesign" Content="" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="150" Click="ButtonDesign_Click"/>
+        <Button x:Name="buttonDesign" Content="" Margin="25,50,419,0" VerticalAlignment="Top" Click="ButtonDesign_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="230" Margin="200,75,0,0" VerticalAlignment="Top" Width="339" Source="people-clipart.jpg"/>
 
     </Grid>

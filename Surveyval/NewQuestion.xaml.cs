@@ -26,7 +26,7 @@ namespace Surveyval
             InitializeComponent();
 
             //Initialize controls
-            this.Title = strings.NewQuestionTitle;
+            Title = strings.NewQuestionTitle;
             labelText.Content = strings.NewQuestionLabelText;
             groupBoxAnswer.Header = strings.NewQuestionGroupBoxAnswer;
             radioButtonText.Content = strings.NewQuestionRadioText;

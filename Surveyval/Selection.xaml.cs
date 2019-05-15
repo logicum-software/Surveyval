@@ -62,7 +62,7 @@ namespace Surveyval
                     return;
 
                 appData.appFrageboegen.RemoveAt(listViewSelect.SelectedIndex);
-                appData.save();
+                //saveData();
                 listViewSelect.Items.Refresh();
                 MessageBox.Show(strings.SelectionDeleteDeleted, strings.SelectionDeleteTitle, MessageBoxButton.OK);
             }
