@@ -79,6 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="TmpListViewQuestion.cs" />
     <Page Include="Design.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

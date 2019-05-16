@@ -10,7 +10,7 @@
         <Button x:Name="buttonCancel" Content="" Margin="933,0,10,10" Height="20" VerticalAlignment="Bottom" Click="ButtonCancel_Click"/>
         <GroupBox x:Name="groupBoxQuestionnaire" Header="" Height="250" Margin="10,10,10,0" VerticalAlignment="Top">
             <Grid Margin="0">
-                <ListBox x:Name="listBoxQuestionnaire" Height="185" Margin="10,10,10,0" VerticalAlignment="Top">
+                <ListBox x:Name="listBoxQuestionnaire" Height="185" Margin="10,10,10,0" VerticalAlignment="Top" SelectionChanged="ListBoxQuestionnaire_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -29,7 +29,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <CheckBox x:Name="checkBox" Content="{Binding strFragetext}"/>
+                                <CheckBox x:Name="checkBox" IsChecked="{Binding IsChecked}" Content="{Binding strName}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

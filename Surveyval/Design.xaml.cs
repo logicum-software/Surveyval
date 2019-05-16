@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Surveyval
 {
@@ -14,6 +15,7 @@ namespace Surveyval
     public partial class Design : Window
     {
         private AppData appData;
+        private List<TmpListViewQuestion> tmpQuestions;
 
         public Design()
         {
@@ -73,10 +75,14 @@ namespace Surveyval
                 }
                 tmpFragebogen.strName = strings.DesignNewQuestionnaireText + i;
             }*/
+            tmpQuestions = new List<TmpListViewQuestion>();
+
+            foreach (Frage item in appData.appFragen)
+                tmpQuestions.Add(new TmpListViewQuestion(item.strFragetext, false));
 
             // Initialize fields
             listBoxQuestionnaire.ItemsSource = appData.appFrageboegen;
-            listBoxQuestion.ItemsSource = appData.appFragen;
+            listBoxQuestion.ItemsSource = tmpQuestions;
             //refreshLists();
         }
 
@@ -195,6 +201,17 @@ namespace Surveyval
                     saveData();
                     refreshLists();
                 }
+            }
+        }
+
+        private void ListBoxQuestionnaire_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            foreach (TmpListViewQuestion item in tmpQuestions)
+            {
+                if (appData.appFrageboegen[listBoxQuestionnaire.SelectedIndex].isContaining(item.strName))
+                    item.IsChecked = true;
+                else
+                    item.IsChecked = false;
             }
         }
 
