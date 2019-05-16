@@ -243,6 +243,12 @@
   <data name="NewQuestionnaireButtonSave" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="NewQuestionnaireExists" xml:space="preserve">
+    <value>A questionnaire with this name already exists. Please enter a differnet name.</value>
+  </data>
+  <data name="NewQuestionnaireExistsTitle" xml:space="preserve">
+    <value>Questionnaire exists</value>
+  </data>
   <data name="NewQuestionnaireLabelName" xml:space="preserve">
     <value>Name</value>
   </data>

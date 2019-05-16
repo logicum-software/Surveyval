@@ -181,7 +181,21 @@ namespace Surveyval
             dlgNewQuestionnaire.buttonCancel.Content = strings.NewQuestionnaireButtonCancel;
             dlgNewQuestionnaire.textBoxName.Focus();
             dlgNewQuestionnaire.textBoxName.SelectAll();
-            dlgNewQuestionnaire.ShowDialog();
+
+            if (dlgNewQuestionnaire.ShowDialog() == true)
+            {
+                if (appData.isContaining(new Fragebogen(dlgNewQuestionnaire.textBoxName.Text, new List<Frage>())))
+                {
+                    MessageBox.Show(strings.NewQuestionnaireExists, strings.NewQuestionnaireExistsTitle, MessageBoxButton.OK);
+                    return;
+                }
+                else
+                {
+                    appData.appFrageboegen.Add(new Fragebogen(dlgNewQuestionnaire.textBoxName.Text, new List<Frage>()));
+                    saveData();
+                    refreshLists();
+                }
+            }
         }
 
         /*private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

@@ -439,6 +439,24 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die A questionnaire with this name already exists. Please enter a differnet name. ähnelt.
+        /// </summary>
+        internal static string NewQuestionnaireExists {
+            get {
+                return ResourceManager.GetString("NewQuestionnaireExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Questionnaire exists ähnelt.
+        /// </summary>
+        internal static string NewQuestionnaireExistsTitle {
+            get {
+                return ResourceManager.GetString("NewQuestionnaireExistsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Name ähnelt.
         /// </summary>
         internal static string NewQuestionnaireLabelName {
