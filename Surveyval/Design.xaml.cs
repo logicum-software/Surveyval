@@ -16,6 +16,7 @@ namespace Surveyval
     {
         private AppData appData;
         private List<TmpListViewQuestion> tmpQuestions;
+        private int iIndexSelectedQuestionnaire, iIndexSelectedQuestion;
 
         public Design()
         {
@@ -35,6 +36,8 @@ namespace Surveyval
             ((System.Windows.Controls.GridView)listViewCatalog.View).Columns[0].Header = strings.DesignListViewTextLabel;*/
 
             appData = new AppData();
+            iIndexSelectedQuestionnaire = 0;
+            iIndexSelectedQuestion = 0;
 
             //Daten einlesen aus Datei "udata.dat"
             IFormatter formatter = new BinaryFormatter();
@@ -110,8 +113,16 @@ namespace Surveyval
 
         private void refreshLists()
         {
-            listBoxQuestion.Items.Refresh();
             listBoxQuestionnaire.Items.Refresh();
+
+            foreach (Frage item in appData.appFragen)
+            {
+                if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(item.strFragetext))
+                {
+                    //tmpQuestions[]
+                }
+            }
+            listBoxQuestion.Items.Refresh();
             /*tmpFragen.Clear();
 
             foreach (Frage item in appData.appFragen)
@@ -206,20 +217,26 @@ namespace Surveyval
 
         private void ListBoxQuestionnaire_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            foreach (TmpListViewQuestion item in tmpQuestions)
+            if (listBoxQuestionnaire.SelectedIndex > -1)
             {
-                if (appData.appFrageboegen[listBoxQuestionnaire.SelectedIndex].isContaining(item.strName))
-                    item.IsChecked = true;
-                else
-                    item.IsChecked = false;
+                iIndexSelectedQuestionnaire = listBoxQuestionnaire.SelectedIndex;
+                foreach (TmpListViewQuestion item in tmpQuestions)
+                {
+                    if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(item.strName))
+                        item.IsChecked = true;
+                    else
+                        item.IsChecked = false;
+                }
+                MessageBox.Show(iIndexSelectedQuestionnaire.ToString(), "Index", MessageBoxButton.OK);
             }
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("Checked", "Checked", MessageBoxButton.OK);
-            appData.appFrageboegen[listBoxQuestionnaire.SelectedIndex].Fragen.Add(appData.appFragen[listBoxQuestion.SelectedIndex]);
-            MessageBox.Show(strings.DesignAddQuestion1 + "\n\n" + appData.appFragen[listBoxQuestion.SelectedIndex].strFragetext +
+            appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Add(appData.appFragen[iIndexSelectedQuestion]);
+            tmpQuestions[iIndexSelectedQuestion].IsChecked = true;
+            MessageBox.Show(strings.DesignAddQuestion1 + "\n\n" + appData.appFragen[iIndexSelectedQuestion].strFragetext + "\n\n" +
                 strings.DesignAddQuestion2, strings.DesignAddQuestion3, MessageBoxButton.OK);
             refreshLists();
         }
