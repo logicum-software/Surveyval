@@ -11,8 +11,8 @@
         <GroupBox x:Name="groupBoxQuestionnaire" Header="" Height="250" Margin="10,10,10,0" VerticalAlignment="Top">
             <Grid Margin="0">
                 <ListBox x:Name="listBoxQuestionnaire" Height="185" Margin="10,10,10,0" VerticalAlignment="Top"/>
-                <Button x:Name="buttonNewQuestionnaire" Content="" Margin="721,0,145,6" VerticalAlignment="Bottom"/>
-                <Button x:Name="buttonDelQuestionnaire" Content="" Margin="846,0,10,6" Height="20" VerticalAlignment="Bottom"/>
+                <Button x:Name="buttonNewQuestionnaire" Content="" Margin="721,0,145,6" VerticalAlignment="Bottom" Click="ButtonNewQuestionnaire_Click"/>
+                <Button x:Name="buttonDelQuestionnaire" Content="" Margin="846,0,10,6" Height="20" VerticalAlignment="Bottom" IsEnabled="False"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBoxQuestion" Header="" Height="250" Margin="10,275,10,0" VerticalAlignment="Top">

@@ -75,6 +75,7 @@ namespace Surveyval
             }*/
 
             // Initialize fields
+            listBoxQuestionnaire.ItemsSource = appData.appFrageboegen;
             listBoxQuestion.ItemsSource = appData.appFragen;
             //refreshLists();
         }
@@ -104,6 +105,7 @@ namespace Surveyval
         private void refreshLists()
         {
             listBoxQuestion.Items.Refresh();
+            listBoxQuestionnaire.Items.Refresh();
             /*tmpFragen.Clear();
 
             foreach (Frage item in appData.appFragen)
@@ -166,6 +168,20 @@ namespace Surveyval
                     refreshLists();
                 }
             }*/
+        }
+
+        private void ButtonNewQuestionnaire_Click(object sender, RoutedEventArgs e)
+        {
+            NewQuestionnaire dlgNewQuestionnaire = new NewQuestionnaire();
+
+            dlgNewQuestionnaire.Title = strings.NewQuestionnaireTitle;
+            dlgNewQuestionnaire.labelName.Content = strings.NewQuestionnaireLabelName;
+            dlgNewQuestionnaire.textBoxName.Text = strings.NewQuestionnaireTextBoxName;
+            dlgNewQuestionnaire.buttonSave.Content = strings.NewQuestionnaireButtonSave;
+            dlgNewQuestionnaire.buttonCancel.Content = strings.NewQuestionnaireButtonCancel;
+            dlgNewQuestionnaire.textBoxName.Focus();
+            dlgNewQuestionnaire.textBoxName.SelectAll();
+            dlgNewQuestionnaire.ShowDialog();
         }
 
         /*private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

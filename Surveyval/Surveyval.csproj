@@ -68,6 +68,9 @@
     <Compile Include="NewQuestion.xaml.cs">
       <DependentUpon>NewQuestion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewQuestionnaire.xaml.cs">
+      <DependentUpon>NewQuestionnaire.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Selection.xaml.cs">
       <DependentUpon>Selection.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewQuestionnaire.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

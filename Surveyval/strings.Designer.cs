@@ -421,6 +421,51 @@ namespace Surveyval {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        /// </summary>
+        internal static string NewQuestionnaireButtonCancel {
+            get {
+                return ResourceManager.GetString("NewQuestionnaireButtonCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
+        /// </summary>
+        internal static string NewQuestionnaireButtonSave {
+            get {
+                return ResourceManager.GetString("NewQuestionnaireButtonSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Name ähnelt.
+        /// </summary>
+        internal static string NewQuestionnaireLabelName {
+            get {
+                return ResourceManager.GetString("NewQuestionnaireLabelName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Please enter a name... ähnelt.
+        /// </summary>
+        internal static string NewQuestionnaireTextBoxName {
+            get {
+                return ResourceManager.GetString("NewQuestionnaireTextBoxName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die New Questionnaire ähnelt.
+        /// </summary>
+        internal static string NewQuestionnaireTitle {
+            get {
+                return ResourceManager.GetString("NewQuestionnaireTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Choice ähnelt.
         /// </summary>
         internal static string NewQuestionRadioChoice {

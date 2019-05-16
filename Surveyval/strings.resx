@@ -237,6 +237,21 @@
   <data name="NewQuestionLabelText" xml:space="preserve">
     <value>Text</value>
   </data>
+  <data name="NewQuestionnaireButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewQuestionnaireButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="NewQuestionnaireLabelName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewQuestionnaireTextBoxName" xml:space="preserve">
+    <value>Please enter a name...</value>
+  </data>
+  <data name="NewQuestionnaireTitle" xml:space="preserve">
+    <value>New Questionnaire</value>
+  </data>
   <data name="NewQuestionRadioChoice" xml:space="preserve">
     <value>Choice</value>
   </data>
