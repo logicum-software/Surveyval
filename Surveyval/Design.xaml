@@ -29,7 +29,7 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <CheckBox x:Name="checkBox" IsChecked="{Binding IsChecked}" Content="{Binding strName}" />
+                                <CheckBox x:Name="checkBox" IsChecked="{Binding IsChecked}" Content="{Binding strName}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

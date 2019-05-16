@@ -215,6 +215,20 @@ namespace Surveyval
             }
         }
 
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("Checked", "Checked", MessageBoxButton.OK);
+            appData.appFrageboegen[listBoxQuestionnaire.SelectedIndex].Fragen.Add(appData.appFragen[listBoxQuestion.SelectedIndex]);
+            MessageBox.Show(strings.DesignAddQuestion1 + "\n\n" + appData.appFragen[listBoxQuestion.SelectedIndex].strFragetext +
+                strings.DesignAddQuestion2, strings.DesignAddQuestion3, MessageBoxButton.OK);
+            refreshLists();
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Unchecked", "Unchecked", MessageBoxButton.OK);
+        }
+
         /*private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             listViewIncluded.SelectedItem = null;
