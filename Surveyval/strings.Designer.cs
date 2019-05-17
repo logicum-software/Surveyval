@@ -97,15 +97,6 @@ namespace Surveyval {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Add question ähnelt.
-        /// </summary>
-        internal static string DesignButtonAddQuestion {
-            get {
-                return ResourceManager.GetString("DesignButtonAddQuestion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Close ähnelt.
         /// </summary>
         internal static string DesignButtonCancel {
@@ -147,15 +138,6 @@ namespace Surveyval {
         internal static string DesignButtonNewQuestionnaire {
             get {
                 return ResourceManager.GetString("DesignButtonNewQuestionnaire", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Remove question ähnelt.
-        /// </summary>
-        internal static string DesignButtonRemoveQuestion {
-            get {
-                return ResourceManager.GetString("DesignButtonRemoveQuestion", resourceCulture);
             }
         }
         

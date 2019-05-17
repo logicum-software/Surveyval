@@ -26,14 +26,10 @@ namespace Surveyval
             buttonCancel.Content = strings.DesignButtonCancel;
             buttonNewQuestion.Content = strings.DesignButtonNewQuestion;
             buttonDelQuestion.Content = strings.DesignButtonDelQuestion;
-            /*buttonAddQuestion.Content = strings.DesignButtonAddQuestion;
-            buttonRemoveQuestion.Content = strings.DesignButtonRemoveQuestion;*/
             buttonNewQuestionnaire.Content = strings.DesignButtonNewQuestionnaire;
             buttonDelQuestionnaire.Content = strings.DesignButtonDelQuestionnaire;
             groupBoxQuestionnaire.Header = strings.DesignGroupBoxQuestionnaireCatalog;
             groupBoxQuestion.Header = strings.DesignGroupBoxQuestionCatalog;
-            /*((System.Windows.Controls.GridView)listViewIncluded.View).Columns[0].Header = strings.DesignListViewTextLabel;
-            ((System.Windows.Controls.GridView)listViewCatalog.View).Columns[0].Header = strings.DesignListViewTextLabel;*/
 
             appData = new AppData();
             iIndexSelectedQuestionnaire = 0;
@@ -53,40 +49,13 @@ namespace Surveyval
                 //throw;
             }
 
-            // Nachfolgendes muss in "Neuer Fragebogen"
-            /*if (tmpFragebogen.strName.Length < 1)
-            {
-                int i = 1;
-                Boolean bFound = false;
-
-                if (appData.appFrageboegen.Count > 0)
-                {
-                    while (!bFound)
-                    {
-                        foreach (Fragebogen item in appData.appFrageboegen)
-                        {
-                            if (item.strName.Equals(strings.DesignNewQuestionnaireText + i))
-                            {
-                                i++;
-                                break;
-                            }
-
-                            if (item.strName.Equals(appData.appFrageboegen[appData.appFrageboegen.Count - 1].strName))
-                                bFound = true;
-                        }
-                    }
-                }
-                tmpFragebogen.strName = strings.DesignNewQuestionnaireText + i;
-            }*/
-            tmpQuestions = new List<TmpListViewQuestion>();
-
-            foreach (Frage item in appData.appFragen)
-                tmpQuestions.Add(new TmpListViewQuestion(item.strFragetext, false));
+            listBoxQuestionnaire.SelectedIndex = 0;
+            listBoxQuestionnaire.Focus();
 
             // Initialize fields
             listBoxQuestionnaire.ItemsSource = appData.appFrageboegen;
-            listBoxQuestion.ItemsSource = tmpQuestions;
-            //refreshLists();
+            listBoxQuestion.ItemsSource = appData.appFragen;
+            refreshLists();
         }
 
         private void saveData()
@@ -119,25 +88,10 @@ namespace Surveyval
             {
                 if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(item.strFragetext))
                 {
-                    //tmpQuestions[]
+                    item.bInSelected = true;
                 }
             }
             listBoxQuestion.Items.Refresh();
-            /*tmpFragen.Clear();
-
-            foreach (Frage item in appData.appFragen)
-            {
-                if (!tmpFragebogen.isContaining(item))
-                    tmpFragen.Add(item);
-            }
-
-            listViewIncluded.Items.Refresh();
-            listViewCatalog.Items.Refresh();
-            textBoxName.Text = tmpFragebogen.strName;*/
-
-            // Spaltenbreite neu anpassen
-            /*listViewIncluded.UpdateLayout();
-            listViewCatalog.UpdateLayout();*/
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
@@ -217,9 +171,9 @@ namespace Surveyval
 
         private void ListBoxQuestionnaire_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (listBoxQuestionnaire.SelectedIndex > -1)
+            iIndexSelectedQuestionnaire = listBoxQuestionnaire.SelectedIndex;
+            /*if (listBoxQuestionnaire.SelectedIndex > -1)
             {
-                iIndexSelectedQuestionnaire = listBoxQuestionnaire.SelectedIndex;
                 foreach (TmpListViewQuestion item in tmpQuestions)
                 {
                     if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(item.strName))
@@ -228,22 +182,23 @@ namespace Surveyval
                         item.IsChecked = false;
                 }
                 MessageBox.Show(iIndexSelectedQuestionnaire.ToString(), "Index", MessageBoxButton.OK);
-            }
+            }*/
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("Checked", "Checked", MessageBoxButton.OK);
+            iIndexSelectedQuestion = listBoxQuestion.SelectedIndex;
             appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Add(appData.appFragen[iIndexSelectedQuestion]);
-            tmpQuestions[iIndexSelectedQuestion].IsChecked = true;
-            MessageBox.Show(strings.DesignAddQuestion1 + "\n\n" + appData.appFragen[iIndexSelectedQuestion].strFragetext + "\n\n" +
-                strings.DesignAddQuestion2, strings.DesignAddQuestion3, MessageBoxButton.OK);
-            refreshLists();
+            saveData();
+            MessageBox.Show(strings.DesignAddQuestion1, strings.DesignAddQuestion2, MessageBoxButton.OK);
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Unchecked", "Unchecked", MessageBoxButton.OK);
+            iIndexSelectedQuestion = listBoxQuestion.SelectedIndex;
+            appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Remove(appData.appFragen[iIndexSelectedQuestion]);
+            saveData();
+            MessageBox.Show(strings.DesignRemoveQuestion1, strings.DesignRemoveQuestion2, MessageBoxButton.OK);
         }
 
         /*private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

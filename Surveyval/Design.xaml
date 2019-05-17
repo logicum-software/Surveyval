@@ -29,8 +29,8 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <CheckBox x:Name="checkBox" IsChecked="{Binding IsChecked}" Content="{Binding strName}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
-                            </StackPanel>
+                                <CheckBox x:Name="checkBox" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Content="{Binding strFragetext}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+                            </StackPanel>    
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
