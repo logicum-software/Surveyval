@@ -15,7 +15,6 @@ namespace Surveyval
     public partial class Design : Window
     {
         private AppData appData;
-        private List<TmpListViewQuestion> tmpQuestions;
         private int iIndexSelectedQuestionnaire, iIndexSelectedQuestion;
 
         public Design()
@@ -172,6 +171,8 @@ namespace Surveyval
         private void ListBoxQuestionnaire_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             iIndexSelectedQuestionnaire = listBoxQuestionnaire.SelectedIndex;
+            MessageBox.Show(appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Count.ToString(), "Anzahl Fragen",
+                MessageBoxButton.OK);
             /*if (listBoxQuestionnaire.SelectedIndex > -1)
             {
                 foreach (TmpListViewQuestion item in tmpQuestions)
@@ -188,17 +189,23 @@ namespace Surveyval
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             iIndexSelectedQuestion = listBoxQuestion.SelectedIndex;
-            appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Add(appData.appFragen[iIndexSelectedQuestion]);
-            saveData();
-            MessageBox.Show(strings.DesignAddQuestion1, strings.DesignAddQuestion2, MessageBoxButton.OK);
+            /*appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Add(appData.appFragen[iIndexSelectedQuestion]);
+            saveData();*/
+            MessageBox.Show(listBoxQuestion.SelectedIndex.ToString(), "Index checked", MessageBoxButton.OK);
+            //MessageBox.Show(strings.DesignAddQuestion1, strings.DesignAddQuestion2, MessageBoxButton.OK);
+        }
+
+        private void ListBoxQuestion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MessageBox.Show(e.AddedItems.IndexOf(e.AddedItems).ToString(), "Index", MessageBoxButton.OK);
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            iIndexSelectedQuestion = listBoxQuestion.SelectedIndex;
+            /*iIndexSelectedQuestion = listBoxQuestion.SelectedIndex;
             appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Remove(appData.appFragen[iIndexSelectedQuestion]);
             saveData();
-            MessageBox.Show(strings.DesignRemoveQuestion1, strings.DesignRemoveQuestion2, MessageBoxButton.OK);
+            MessageBox.Show(strings.DesignRemoveQuestion1, strings.DesignRemoveQuestion2, MessageBoxButton.OK);*/
         }
 
         /*private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
