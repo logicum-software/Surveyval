@@ -171,8 +171,8 @@ namespace Surveyval
         private void ListBoxQuestionnaire_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             iIndexSelectedQuestionnaire = listBoxQuestionnaire.SelectedIndex;
-            MessageBox.Show(appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Count.ToString(), "Anzahl Fragen",
-                MessageBoxButton.OK);
+            /*MessageBox.Show(appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Count.ToString(), "Anzahl Fragen",
+                MessageBoxButton.OK);*/
             /*if (listBoxQuestionnaire.SelectedIndex > -1)
             {
                 foreach (TmpListViewQuestion item in tmpQuestions)
