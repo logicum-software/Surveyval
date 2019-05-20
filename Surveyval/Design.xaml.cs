@@ -58,11 +58,18 @@ namespace Surveyval
             {
                 CheckBox tmp = new CheckBox();
                 tmp.Content = item.strFragetext;
+                if (appData.appFrageboegen[0].isContaining(item.strFragetext))
+                    tmp.IsChecked = true;
+                else
+                    tmp.IsChecked = false;
+
                 tmp.Checked += CheckBox_Checked;
+                tmp.Unchecked += CheckBox_Unchecked;
+
                 listBoxQuestion.Items.Add(tmp);
             }
 
-            refreshLists();
+            //refreshLists();
         }
 
         private void saveData()
