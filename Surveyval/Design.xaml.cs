@@ -188,11 +188,19 @@ namespace Surveyval
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            iIndexSelectedQuestion = listBoxQuestion.SelectedIndex;
+            foreach (Frage item in appData.appFragen)
+            {
+                if (((CheckBox)e.OriginalSource).Content.Equals(item.strFragetext))
+                {
+                    appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Add(item);
+                    saveData();
+                }
+            }
+
             /*appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Add(appData.appFragen[iIndexSelectedQuestion]);
             saveData();*/
-            MessageBox.Show(listBoxQuestion.SelectedIndex.ToString(), "Index checked", MessageBoxButton.OK);
-            //MessageBox.Show(strings.DesignAddQuestion1, strings.DesignAddQuestion2, MessageBoxButton.OK);
+            //MessageBox.Show(((CheckBox) e.OriginalSource).Content.ToString(), "Index checked", MessageBoxButton.OK);
+            MessageBox.Show(strings.DesignAddQuestion1, strings.DesignAddQuestion2, MessageBoxButton.OK);
         }
 
         private void ListBoxQuestion_SelectionChanged(object sender, SelectionChangedEventArgs e)
