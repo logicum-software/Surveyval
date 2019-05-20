@@ -26,13 +26,13 @@
         <GroupBox x:Name="groupBoxQuestion" Header="" Height="250" Margin="10,275,10,0" VerticalAlignment="Top">
             <Grid Margin="0">
                 <ListBox x:Name="listBoxQuestion" Height="184" Margin="10,10,10,0" VerticalAlignment="Top" SelectionChanged="ListBoxQuestion_SelectionChanged" SelectionMode="Multiple">
-                    <ListBox.ItemTemplate>
+                    <!-- <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <CheckBox x:Name="checkBox" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Content="{Binding strFragetext}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
-                            </StackPanel>    
+                                <CheckBox x:Name="checkBox" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+                            </StackPanel>
                         </DataTemplate>
-                    </ListBox.ItemTemplate>
+                    </ListBox.ItemTemplate> -->
                 </ListBox>
                 <Button x:Name="buttonNewQuestion" Content="" Margin="771,0,115,9" Click="ButtonNewQuestion_Click" Height="20" VerticalAlignment="Bottom"/>
                 <Button x:Name="buttonDelQuestion" Content="" Margin="876,0,10,9" Click="ButtonDelQuestion_Click" IsEnabled="False" Height="20" VerticalAlignment="Bottom"/>

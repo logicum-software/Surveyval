@@ -53,7 +53,15 @@ namespace Surveyval
 
             // Initialize fields
             listBoxQuestionnaire.ItemsSource = appData.appFrageboegen;
-            listBoxQuestion.ItemsSource = appData.appFragen;
+            //listBoxQuestion.ItemsSource = appData.appFragen;
+            foreach (Frage item in appData.appFragen)
+            {
+                CheckBox tmp = new CheckBox();
+                tmp.Content = item.strFragetext;
+                tmp.Checked += CheckBox_Checked;
+                listBoxQuestion.Items.Add(tmp);
+            }
+
             refreshLists();
         }
 
@@ -83,11 +91,19 @@ namespace Surveyval
         {
             listBoxQuestionnaire.Items.Refresh();
 
-            foreach (Frage item in appData.appFragen)
+            /*foreach (Frage item in appData.appFragen)
             {
                 if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(item.strFragetext))
                 {
                     item.bInSelected = true;
+                }
+            }*/
+
+            foreach (CheckBox item in listBoxQuestion.Items)
+            {
+                if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(item.Content.ToString()))
+                {
+                    item.IsChecked = true;
                 }
             }
             listBoxQuestion.Items.Refresh();
