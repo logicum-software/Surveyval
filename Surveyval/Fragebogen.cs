@@ -51,5 +51,28 @@ namespace Surveyval
             }
             return false;
         }
+
+        internal Boolean removeQuestion(String s)
+        {
+            int i = 0;
+            foreach (Frage item in Fragen)
+            {
+                if (item.strFragetext.Equals(s))
+                {
+                    i = Fragen.IndexOf(item);
+                }
+            }
+
+            try
+            {
+                Fragen.RemoveAt(i);
+                return true;
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                return false;
+                throw;
+            }
+        }
     }
 }

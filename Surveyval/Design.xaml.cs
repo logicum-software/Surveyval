@@ -53,22 +53,11 @@ namespace Surveyval
 
             // Initialize fields
             listBoxQuestionnaire.ItemsSource = appData.appFrageboegen;
-            //listBoxQuestion.ItemsSource = appData.appFragen;
-            foreach (Frage item in appData.appFragen)
-            {
-                CheckBox tmp = new CheckBox();
-                tmp.Content = item.strFragetext;
-                if (appData.appFrageboegen[0].isContaining(item.strFragetext))
-                    tmp.IsChecked = true;
-                else
-                    tmp.IsChecked = false;
+            listBoxQuestion.ItemsSource = appData.appFragen;
 
-                tmp.Checked += CheckBox_Checked;
-                tmp.Unchecked += CheckBox_Unchecked;
-
-                listBoxQuestion.Items.Add(tmp);
-            }
-
+            MessageBox.Show("Fragebögen: " + appData.appFrageboegen.Count + "\nFragebogen 0 #Fragen: " + appData.appFrageboegen[0].Fragen.Count +
+                "\nFragebogen 1 #Fragen: " + appData.appFrageboegen[1].Fragen.Count + "\n#Fragen gesamt: " + appData.appFragen.Count, "Status",
+                MessageBoxButton.OK);
             //refreshLists();
         }
 
@@ -97,22 +86,6 @@ namespace Surveyval
         private void refreshLists()
         {
             listBoxQuestionnaire.Items.Refresh();
-
-            /*foreach (Frage item in appData.appFragen)
-            {
-                if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(item.strFragetext))
-                {
-                    item.bInSelected = true;
-                }
-            }*/
-
-            foreach (CheckBox item in listBoxQuestion.Items)
-            {
-                if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(item.Content.ToString()))
-                {
-                    item.IsChecked = true;
-                }
-            }
             listBoxQuestion.Items.Refresh();
         }
 
@@ -217,13 +190,10 @@ namespace Surveyval
                 {
                     appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Add(item);
                     saveData();
+                    MessageBox.Show("Die Frage wurde hinzugefügt", "Frage hinzugefügt", MessageBoxButton.OK);
                 }
             }
-
-            /*appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Add(appData.appFragen[iIndexSelectedQuestion]);
-            saveData();*/
-            //MessageBox.Show(((CheckBox) e.OriginalSource).Content.ToString(), "Index checked", MessageBoxButton.OK);
-            MessageBox.Show(strings.DesignAddQuestion1, strings.DesignAddQuestion2, MessageBoxButton.OK);
+            refreshLists();
         }
 
         private void ListBoxQuestion_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -233,10 +203,18 @@ namespace Surveyval
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            /*iIndexSelectedQuestion = listBoxQuestion.SelectedIndex;
-            appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Remove(appData.appFragen[iIndexSelectedQuestion]);
-            saveData();
-            MessageBox.Show(strings.DesignRemoveQuestion1, strings.DesignRemoveQuestion2, MessageBoxButton.OK);*/
+            if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(new Frage(((CheckBox)e.OriginalSource).Content.ToString(), 1)))
+            {
+                if (appData.appFrageboegen[iIndexSelectedQuestionnaire].removeQuestion(((CheckBox)e.OriginalSource).Content.ToString()))
+                {
+                    saveData();
+                    MessageBox.Show("Frage:\n\n" + ((CheckBox)e.OriginalSource).Content.ToString() + "\n\nentfernt.", "Frage entfernt", MessageBoxButton.OK);
+                }
+                else
+                    MessageBox.Show("Frage:\n\n" + ((CheckBox)e.OriginalSource).Content.ToString() + "\n\nkonnte nicht entfernt werden.",
+                        "Fehler beim Entfernen", MessageBoxButton.OK);
+            }
+            refreshLists();
         }
 
         /*private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
