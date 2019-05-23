@@ -55,9 +55,12 @@ namespace Surveyval
             listBoxQuestionnaire.ItemsSource = appData.appFrageboegen;
             listBoxQuestion.ItemsSource = appData.appFragen;
 
-            MessageBox.Show("Fragebögen: " + appData.appFrageboegen.Count + "\nFragebogen 0 #Fragen: " + appData.appFrageboegen[0].Fragen.Count +
-                "\nFragebogen 1 #Fragen: " + appData.appFrageboegen[1].Fragen.Count + "\n#Fragen gesamt: " + appData.appFragen.Count, "Status",
-                MessageBoxButton.OK);
+            if (appData.appFrageboegen.Count > 1)
+            {
+                MessageBox.Show("Fragebögen: " + appData.appFrageboegen.Count + "\nFragebogen 0 #Fragen: " + appData.appFrageboegen[0].Fragen.Count +
+                    "\nFragebogen 1 #Fragen: " + appData.appFrageboegen[1].Fragen.Count + "\n#Fragen gesamt: " + appData.appFragen.Count, "Status",
+                    MessageBoxButton.OK);
+            }
             //refreshLists();
         }
 
@@ -184,16 +187,7 @@ namespace Surveyval
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            foreach (Frage item in appData.appFragen)
-            {
-                if (((CheckBox)e.OriginalSource).Content.Equals(item.strFragetext))
-                {
-                    appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Add(item);
-                    saveData();
-                    MessageBox.Show("Die Frage wurde hinzugefügt", "Frage hinzugefügt", MessageBoxButton.OK);
-                }
-            }
-            refreshLists();
+            saveData();
         }
 
         private void ListBoxQuestion_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -203,18 +197,6 @@ namespace Surveyval
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(new Frage(((CheckBox)e.OriginalSource).Content.ToString(), 1)))
-            {
-                if (appData.appFrageboegen[iIndexSelectedQuestionnaire].removeQuestion(((CheckBox)e.OriginalSource).Content.ToString()))
-                {
-                    saveData();
-                    MessageBox.Show("Frage:\n\n" + ((CheckBox)e.OriginalSource).Content.ToString() + "\n\nentfernt.", "Frage entfernt", MessageBoxButton.OK);
-                }
-                else
-                    MessageBox.Show("Frage:\n\n" + ((CheckBox)e.OriginalSource).Content.ToString() + "\n\nkonnte nicht entfernt werden.",
-                        "Fehler beim Entfernen", MessageBoxButton.OK);
-            }
-            refreshLists();
         }
 
         /*private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
