@@ -60,6 +60,8 @@ namespace Surveyval
                 MessageBox.Show("Fragebögen: " + appData.appFrageboegen.Count + "\nFragebogen 0 #Fragen: " + appData.appFrageboegen[0].Fragen.Count +
                     "\nFragebogen 1 #Fragen: " + appData.appFrageboegen[1].Fragen.Count + "\n#Fragen gesamt: " + appData.appFragen.Count, "Status",
                     MessageBoxButton.OK);
+
+                updateSelection();
             }
             //refreshLists();
         }
@@ -84,6 +86,18 @@ namespace Surveyval
             {
                 fs.Close();
             }
+        }
+
+        private void updateSelection()
+        {
+            foreach (Frage item in appData.appFragen)
+            {
+                if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(item.strFragetext))
+                    item.bInSelection = true;
+                else
+                    item.bInSelection = false;
+            }
+            refreshLists();
         }
 
         private void refreshLists()
@@ -170,8 +184,9 @@ namespace Surveyval
         private void ListBoxQuestionnaire_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             iIndexSelectedQuestionnaire = listBoxQuestionnaire.SelectedIndex;
-            /*MessageBox.Show(appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Count.ToString(), "Anzahl Fragen",
-                MessageBoxButton.OK);*/
+            updateSelection();
+            MessageBox.Show(appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Count.ToString(), "Anzahl Fragen",
+                MessageBoxButton.OK);
             /*if (listBoxQuestionnaire.SelectedIndex > -1)
             {
                 foreach (TmpListViewQuestion item in tmpQuestions)
@@ -187,16 +202,31 @@ namespace Surveyval
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            saveData();
+            MessageBox.Show(((CheckBox) e.OriginalSource).Content.ToString(), "Index", MessageBoxButton.OK);
+            if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(((CheckBox) e.OriginalSource).Content.ToString()) == false)
+            {
+                foreach (Frage item in appData.appFragen)
+                {
+                    if (item.strFragetext.Equals(((CheckBox)e.OriginalSource).Content.ToString()))
+                    {
+                        appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Add(item);
+                        saveData();
+                        return;
+                    }
+                }
+            }
         }
 
         private void ListBoxQuestion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            iIndexSelectedQuestion = e.AddedItems.IndexOf(e.AddedItems);
+            MessageBox.Show(iIndexSelectedQuestion.ToString(), "Index", MessageBoxButton.OK);
             //MessageBox.Show(e.AddedItems.IndexOf(e.AddedItems).ToString(), "Index", MessageBoxButton.OK);
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
+            saveData();
         }
 
         /*private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
