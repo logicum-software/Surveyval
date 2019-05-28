@@ -187,17 +187,6 @@ namespace Surveyval
             updateSelection();
             MessageBox.Show(appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Count.ToString(), "Anzahl Fragen",
                 MessageBoxButton.OK);
-            /*if (listBoxQuestionnaire.SelectedIndex > -1)
-            {
-                foreach (TmpListViewQuestion item in tmpQuestions)
-                {
-                    if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(item.strName))
-                        item.IsChecked = true;
-                    else
-                        item.IsChecked = false;
-                }
-                MessageBox.Show(iIndexSelectedQuestionnaire.ToString(), "Index", MessageBoxButton.OK);
-            }*/
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -226,7 +215,18 @@ namespace Surveyval
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            saveData();
+            if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(((CheckBox)e.OriginalSource).Content.ToString()) == true)
+            {
+                foreach (Frage item in appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen)
+                {
+                    if (item.strFragetext.Equals(((CheckBox)e.OriginalSource).Content.ToString()))
+                    {
+                        appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Remove(item);
+                        saveData();
+                        return;
+                    }
+                }
+            }
         }
 
         /*private void ListViewCatalog_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
