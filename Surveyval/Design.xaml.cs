@@ -55,15 +55,13 @@ namespace Surveyval
             listBoxQuestionnaire.ItemsSource = appData.appFrageboegen;
             listBoxQuestion.ItemsSource = appData.appFragen;
 
-            if (appData.appFrageboegen.Count > 1)
+            /*if (appData.appFrageboegen.Count > 1)
             {
                 MessageBox.Show("Fragebögen: " + appData.appFrageboegen.Count + "\nFragebogen 0 #Fragen: " + appData.appFrageboegen[0].Fragen.Count +
                     "\nFragebogen 1 #Fragen: " + appData.appFrageboegen[1].Fragen.Count + "\n#Fragen gesamt: " + appData.appFragen.Count, "Status",
                     MessageBoxButton.OK);
-
-                updateSelection();
-            }
-            //refreshLists();
+            }*/
+            updateSelection();
         }
 
         private void saveData()
@@ -138,19 +136,19 @@ namespace Surveyval
 
         private void ButtonDelQuestion_Click(object sender, RoutedEventArgs e)
         {
-            /*if (listViewCatalog.SelectedItem != null)
+            if (listBoxQuestion.SelectedItem != null)
             {
                 if (MessageBox.Show(strings.DesignDeleteQuestion2 + "\n\n" +
-                    appData.appFragen.ElementAt(listViewCatalog.SelectedIndex).strFragetext +
+                    appData.appFragen.ElementAt(listBoxQuestion.SelectedIndex).strFragetext +
                     "\n\n" + strings.DesignDeleteQuestion3, strings.DesignDeleteQuestion1, MessageBoxButton.YesNo) == MessageBoxResult.No)
                     return;
                 else
                 {
-                    appData.appFragen.RemoveAt(listViewCatalog.SelectedIndex);
-                    appData.save();
+                    appData.appFragen.RemoveAt(listBoxQuestion.SelectedIndex);
+                    saveData();
                     refreshLists();
                 }
-            }*/
+            }
         }
 
         private void ButtonNewQuestionnaire_Click(object sender, RoutedEventArgs e)
@@ -185,13 +183,10 @@ namespace Surveyval
         {
             iIndexSelectedQuestionnaire = listBoxQuestionnaire.SelectedIndex;
             updateSelection();
-            MessageBox.Show(appData.appFrageboegen[iIndexSelectedQuestionnaire].Fragen.Count.ToString(), "Anzahl Fragen",
-                MessageBoxButton.OK);
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(((CheckBox) e.OriginalSource).Content.ToString(), "Index", MessageBoxButton.OK);
             if (appData.appFrageboegen[iIndexSelectedQuestionnaire].isContaining(((CheckBox) e.OriginalSource).Content.ToString()) == false)
             {
                 foreach (Frage item in appData.appFragen)
@@ -209,8 +204,6 @@ namespace Surveyval
         private void ListBoxQuestion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             iIndexSelectedQuestion = e.AddedItems.IndexOf(e.AddedItems);
-            MessageBox.Show(iIndexSelectedQuestion.ToString(), "Index", MessageBoxButton.OK);
-            //MessageBox.Show(e.AddedItems.IndexOf(e.AddedItems).ToString(), "Index", MessageBoxButton.OK);
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
