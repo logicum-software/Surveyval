@@ -136,7 +136,11 @@ namespace Surveyval
 
         private void ButtonDelQuestion_Click(object sender, RoutedEventArgs e)
         {
-            if (listBoxQuestion.SelectedItem != null)
+            Selection dlgSelection = new Selection();
+
+            dlgSelection.ShowDialog();
+
+            /*if (listBoxQuestion.SelectedItem != null)
             {
                 if (MessageBox.Show(strings.DesignDeleteQuestion2 + "\n\n" +
                     appData.appFragen.ElementAt(listBoxQuestion.SelectedIndex).strFragetext +
@@ -148,7 +152,7 @@ namespace Surveyval
                     saveData();
                     refreshLists();
                 }
-            }
+            }*/
         }
 
         private void ButtonNewQuestionnaire_Click(object sender, RoutedEventArgs e)

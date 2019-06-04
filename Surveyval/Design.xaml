@@ -35,7 +35,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <Button x:Name="buttonNewQuestion" Content="" Margin="771,0,115,9" Click="ButtonNewQuestion_Click" Height="20" VerticalAlignment="Bottom"/>
-                <Button x:Name="buttonDelQuestion" Content="" Margin="876,0,10,9" Click="ButtonDelQuestion_Click" IsEnabled="False" Height="20" VerticalAlignment="Bottom"/>
+                <Button x:Name="buttonDelQuestion" Content="" Margin="876,0,10,9" Click="ButtonDelQuestion_Click" Height="20" VerticalAlignment="Bottom"/>
             </Grid>
         </GroupBox>
 
